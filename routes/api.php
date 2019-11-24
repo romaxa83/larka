@@ -13,6 +13,14 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
+
+Route::post('register', 'Api\Auth\RegisterController@register')->name('api.register');
+
+Route::post('login',['uses' => 'Api\Auth\LoginController@login', 'as' => 'api.login']);
+Route::post('refresh-token',['uses' => 'Api\Auth\LoginController@refreshToken', 'as' => 'api.refresh.token']);
+
+Route::middleware('auth:api')->group(function () {
+
+    Route::get('logout',['uses' => 'Api\Auth\LoginController@logout', 'as' => 'api.logout']);
+
 });

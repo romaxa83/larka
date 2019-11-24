@@ -9,7 +9,7 @@ nodejs_container = larka_nodejs
 up: docker_up info
 restart: docker_down up
 init: docker_down cp_env build docker_up cp_env app_init permission api_docs info
-test: test-run
+test: test_run
 
 #==========COMMAND==================================================
 

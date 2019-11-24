@@ -42,9 +42,8 @@ return [
         ],
 
         'api' => [
-            'driver' => 'token',
-            'provider' => 'users',
-            'hash' => false,
+            'driver' => 'passport',
+            'provider' => 'users'
         ],
     ],
 
@@ -113,5 +112,7 @@ return [
     */
 
     'password_timeout' => 10800,
+
+    'oauth_secret_key' => env('OAUTH_SECRET_KEY'),
 
 ];
