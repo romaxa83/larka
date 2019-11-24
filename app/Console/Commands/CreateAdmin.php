@@ -34,7 +34,7 @@ class CreateAdmin extends Command
      *
      * @return void
      */
-    protected $email = 'admin@admn.com';
+    protected $email = 'admin@admin.com';
 
     public function __construct()
     {
