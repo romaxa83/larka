@@ -1,0 +1,95 @@
+version: '3'
+
+services:
+  larka_web:
+    image: webdevops/apache:alpine
+    container_name: larka_web
+    hostname: larka_web
+    environment:
+      WEB_DOCUMENT_ROOT: /app/public
+      WEB_PHP_SOCKET: larka_php:9000
+      LOG_STDOUT: /app/docker/storage/logs/web.access.log
+      LOG_STDERR: /app/docker/storage/logs/web.errors.log
+    networks:
+      default:
+        ipv4_address: 192.168.126.101
+    volumes:
+      - ./:/app:rw,cached
+    working_dir: /app
+    depends_on:
+      - larka_php
+    restart: always
+
+  larka_php:
+    build:
+      context: ./
+      dockerfile: docker/config/php/Dockerfile
+    container_name: larka_php
+    hostname: larka_php
+    networks:
+      default:
+        ipv4_address: 192.168.126.102
+    volumes:
+      - ./:/app:rw,cached
+#      - ./docker/dev/php/.bash_aliases:/root/.bash_aliases
+    working_dir: /app
+    restart: always
+    depends_on:
+      - larka_db
+      - larka_db_testing
+      - larka_cache
+
+  larka_db:
+    image: mariadb
+    container_name: larka_db
+    hostname: larka_db
+    restart: always
+    environment:
+      MYSQL_DATABASE: ${DB_DATABASE}
+      MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
+    networks:
+      default:
+        ipv4_address: 192.168.126.103
+    ports:
+      - 3306:3306
+    volumes:
+      - ./docker/storage/db/mysql:/var/lib/mysql
+
+  larka_db_testing:
+    image: mariadb
+    container_name: larka_db_testing
+    hostname: larka_db_testing
+    restart: always
+    environment:
+      MYSQL_DATABASE: larka-test
+      MYSQL_ROOT_PASSWORD: root
+    networks:
+      default:
+        ipv4_address: 192.168.126.105
+    tmpfs:
+      - /var/lib/mysql
+
+  larka_cache:
+    image: nbtri/alpine-redis
+    environment:
+      ALLOW_EMPTY_PASSWORD: 1
+    container_name: larka_cache
+    hostname: larka_cache
+    networks:
+      default:
+        ipv4_address: 192.168.126.104
+
+  larka_nodejs:
+    image: node:10.11-jessie
+    container_name: larka_nodejs
+    volumes:
+      - ./:/app
+    working_dir: /app
+    tty: true
+
+networks:
+  default:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 192.168.126.0/24
