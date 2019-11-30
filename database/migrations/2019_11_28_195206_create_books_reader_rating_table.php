@@ -14,8 +14,10 @@ class CreateBooksReaderRatingTable extends Migration
     public function up()
     {
         Schema::create('books_reader_rating', function (Blueprint $table) {
-            $table->integer('book_id')->references('id')->on('books_book')->onDelete('CASCADE');
-            $table->integer('reader_id')->references('id')->on('books_reader_profile')->onDelete('CASCADE');
+            $table->integer('book_id')->unsigned();
+            $table->foreign('book_id')->references('id')->on('books_book')->onDelete('CASCADE');
+            $table->integer('reader_id')->unsigned();
+            $table->foreign('reader_id')->references('id')->on('books_reader_profile')->onDelete('CASCADE');
             $table->integer('rating');
             $table->primary(['book_id', 'reader_id']);
         });

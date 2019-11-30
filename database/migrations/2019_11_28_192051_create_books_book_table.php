@@ -24,10 +24,14 @@ class CreateBooksBookTable extends Migration
             $table->integer('amount_current')->default(0)->comment('Кол-во книг которое присутствует на дпнный момент');
             $table->integer('rating')->default(0);
             $table->integer('count_read')->default(0)->comment('Кол-во взятий для чтения');
-            $table->integer('category_id')->references('id')->on('books_category');
-            $table->integer('author_id')->references('id')->on('books_author');
-            $table->integer('image_id')->references('id')->on('image');
-            $table->integer('publisher_id')->references('id')->on('books_publisher');
+            $table->integer('category_id')->unsigned();
+            $table->foreign('category_id')->references('id')->on('books_category');
+            $table->integer('author_id')->unsigned();
+            $table->foreign('author_id')->references('id')->on('books_author');
+            $table->integer('image_id')->unsigned();
+            $table->foreign('image_id')->references('id')->on('image');
+            $table->integer('publisher_id')->unsigned();
+            $table->foreign('publisher_id')->references('id')->on('books_publisher');
             $table->date('published_date');
             $table->timestamps();
         });

@@ -15,8 +15,10 @@ class CreateBooksOrderBuyTable extends Migration
     {
         Schema::create('books_order_buy', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('buyer_id')->references('id')->on('books_reader_profile');
-            $table->integer('store_id')->references('id')->on('books_store');
+            $table->integer('buyer_id')->unsigned();
+            $table->foreign('buyer_id')->references('id')->on('books_reader_profile');
+            $table->integer('store_id')->unsigned();
+            $table->foreign('store_id')->references('id')->on('books_store');
             $table->integer('amount')->default(0);
             $table->decimal('price', 8, 2);
             $table->dateTime('buy_date');

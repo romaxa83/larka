@@ -15,7 +15,8 @@ class CreateBooksReaderProfileTable extends Migration
     {
         Schema::create('books_reader_profile', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('user_id')->references('id')->on('users');
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users');
             $table->boolean('status')->default(true);
             $table->date('birthday')->nullable();
             $table->date('date_last_visit');

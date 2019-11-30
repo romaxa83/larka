@@ -14,8 +14,10 @@ class CreateBooksBookTagTable extends Migration
     public function up()
     {
         Schema::create('books_book_tag', function (Blueprint $table) {
-            $table->integer('book_id')->references('id')->on('books_book')->onDelete('CASCADE');
-            $table->integer('tag_id')->references('id')->on('books_tag')->onDelete('CASCADE');
+            $table->integer('book_id')->unsigned();
+            $table->foreign('book_id')->references('id')->on('books_book')->onDelete('CASCADE');
+            $table->integer('tag_id')->unsigned();
+            $table->foreign('tag_id')->references('id')->on('books_tag')->onDelete('CASCADE');
             $table->primary(['book_id', 'tag_id']);
         });
     }
