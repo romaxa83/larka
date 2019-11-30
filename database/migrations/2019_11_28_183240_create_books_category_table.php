@@ -16,7 +16,8 @@ class CreateBooksCategoryTable extends Migration
             $table->increments('id');
             $table->string('title', 100);
             $table->string('slug', 100)->unique()->index();
-            $table->integer('parent_id')->nullable()->references('id')->on('regions')->onDelete('CASCADE');
+            $table->integer('parent_id')->nullable()->unsigned();
+            $table->foreign('parent_id')->references('id')->on('books_category')->onDelete('CASCADE');
             $table->integer('position')->default(0);
             $table->boolean('status');
             $table->timestamps();

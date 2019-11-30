@@ -1,6 +1,7 @@
 .SILENT:
 #==========VARIABLES================================================
 
+host = http://192.168.126.101
 php_container = larka_php
 nodejs_container = larka_nodejs
 
@@ -39,9 +40,13 @@ app_init:
 	docker-compose exec $(php_container) php artisan passport:install
 	docker-compose exec $(php_container) php artisan admin:create
 
+bench:
+	docker-compose exec $(php_container) php bench.php -m=64 -t=30
+
 info:
-	echo "http://192.168.126.101"
-	echo "API - http://192.168.126.101/api/documentation"
+	echo "$(host)"
+	echo "API - $(host)/api/documentation"
+	echo "PHP_INFO - $(host)/phpinfo.php"
 
 test-run:
 	docker-compose exec $(php_container) php ./vendor/bin/phpunit

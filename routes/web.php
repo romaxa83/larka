@@ -23,5 +23,6 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::middleware('auth')->group(function () {
 
     Route::get('admin',['uses' => 'Admin\HomeController@index', 'as' => 'admin.home']);
+    Route::get('admin/books/category',['uses' => 'Admin\Books\CategoryController@index', 'as' => 'admin.books.category']);
 
 });

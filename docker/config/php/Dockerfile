@@ -8,6 +8,8 @@ RUN apt update \
 		nano \
 		wget \
 		curl \
+		openssl \
+		libssl-dev \
 		mysql-client \
         libfreetype6-dev \
         libjpeg62-turbo-dev \
@@ -17,6 +19,7 @@ RUN apt update \
 		libicu-dev \
 		libpng-dev \
 		libxpm-dev \
+		libxml2-dev \
 		libmemcached-dev \
 		g++ \
     && rm -rf /var/lib/apt/lists/*
@@ -36,7 +39,16 @@ RUN docker-php-ext-configure intl \
            --with-xpm-dir \
            --with-freetype-dir \
     && docker-php-ext-install gd \
-    && docker-php-ext-install pdo pdo_mysql opcache zip intl
+    && docker-php-ext-install pdo pdo_mysql opcache zip intl \
+    && docker-php-ext-install xmlrpc
+
+# Swoole
+RUN cd /tmp && wget https://pecl.php.net/get/swoole-4.3.1.tgz && \
+    tar zxvf swoole-4.3.1.tgz && \
+    cd swoole-4.3.1  && \
+    phpize  && \
+    ./configure  --enable-openssl && \
+    make && make install
 
 ADD ./docker/config/php/php.ini /usr/local/etc/php/php.ini
 

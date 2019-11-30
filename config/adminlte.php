@@ -202,12 +202,13 @@ return [
             'icon' => 'fas fa-fw fa-lock',
         ],
         [
-            'text'    => 'multilevel',
+            'text'    => 'Library',
             'icon'    => 'fas fa-fw fa-share',
             'submenu' => [
                 [
-                    'text' => 'level_one',
-                    'url'  => '#',
+                    'text' => 'Books Category',
+                    'url'  => 'admin/books/category',
+//                    'url'  => route('admin.books.category'),
                 ],
                 [
                     'text'    => 'level_one',
