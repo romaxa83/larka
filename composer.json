@@ -19,7 +19,6 @@
         "laravel/tinker": "^1.0",
         "laravel/ui": "^1.1",
         "nwidart/laravel-modules": "^6.2",
-        "swooletw/laravel-swoole": "^2.6",
         "zircote/swagger-php": "2.*"
     },
     "require-dev": {

@@ -2,14 +2,16 @@
 #==========VARIABLES================================================
 
 host = http://192.168.126.101
+elastic_host = http://192.168.126.106:9200
+kibana_host = http://192.168.126.107:5601
 php_container = larka_php
 nodejs_container = larka_nodejs
 
 #==========MAIN_COMMAND=============================================
 
-up: docker_up info
+up: docker_up memory info
 restart: docker_down up
-init: docker_down cp_env build docker_up cp_env app_init permission api_docs info
+init: docker_down cp_env build docker_up cp_env app_init permission memory api_docs info
 test: test_run
 
 #==========COMMAND==================================================
@@ -47,9 +49,15 @@ info:
 	echo "$(host)"
 	echo "API - $(host)/api/documentation"
 	echo "PHP_INFO - $(host)/phpinfo.php"
+	echo "ELASTICSEARCH - $(elastic_host)"
+	echo "KIBANA - $(kibana_host)"
 
 test-run:
 	docker-compose exec $(php_container) php ./vendor/bin/phpunit
+
+# for elasticsearch
+memory:
+	sudo sysctl -w vm.max_map_count=262144
 
 api_docs:
 	docker-compose exec $(php_container) php artisan l5-swagger:generate
