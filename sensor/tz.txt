@@ -1,0 +1,131 @@
+- Данные з датчиков приходят в формате JSON
+{
+    'sensor_id': 1,
+    'time': 1511935948000,
+    'value': 21.89
+}
+_______________________________________
+Метаданные находяться в трех таблицах
+
+sensors_sensor
+    sensor_type         - указан тип датчика (Температура,Влажность)
+    sensor_type_id      - id (1,2)
+
+sensors_location - местонахождение
+    location_id - (1)
+    customer - (Labs)
+    department - (R&D)
+    building_name - (222 Broadway)
+    room - (101)
+    floor - (1)
+    location_on_floor - (c-101)
+    latitude - (40.710936)
+    longitude - (-74.008500)
+
+sensors_sensors - связывает sensor_id с типом датчика и его местонахождением
+    sensor_id
+    sensor_type_id
+    location_id
+______________________________________
+Поиск метаданых SQL
+select
+  s.sensor_type as sensorType,
+  l.customer as customer,
+  l.department as department,
+  l.building_name as buildingName,
+  l.room as room,
+  l.floor as floor,
+  l.location_on_floor as locationOnFloor,
+  l.latitude,
+  l.longitude
+from
+  sensors_sensor s
+  inner join
+  sensors_sensors st ON s.sensor_type_id = st.sensor_type_id
+  inner join
+  sensors_location l ON st.location_id = l.location_id
+where
+  s.sensor_type_id = 1;
+_____________________________________
+POST _template/sensor_data_template
+{
+  "index_patterns": ["sensor_data*"],
+  "settings": {
+    "number_of_replicas": "1",
+    "number_of_shards": "5"
+  },
+  "mappings": {
+    "doc": {
+      "properties": {
+        "sensorId": {
+          "type": "integer"
+        },
+        "sensorType": {
+          "type": "keyword",
+          "fields": {
+            "analyzed": {
+              "type": "text"
+            }
+          }
+        },
+        "customer": {
+          "type": "keyword",
+          "fields": {
+            "analyzed": {
+              "type": "text"
+            }
+          }
+        },
+        "department": {
+          "type": "keyword",
+          "fields": {
+            "analyzed": {
+              "type": "text"
+            }
+          }
+        },
+        "buildingName": {
+          "type": "keyword",
+          "fields": {
+            "analyzed": {
+              "type": "text"
+            }
+          }
+        },
+        "room": {
+          "type": "keyword",
+          "fields": {
+            "analyzed": {
+              "type": "text"
+            }
+          }
+        },
+        "floor": {
+          "type": "keyword",
+          "fields": {
+            "analyzed": {
+              "type": "text"
+            }
+          }
+        },
+        "locationOnFloor": {
+          "type": "keyword",
+          "fields": {
+            "analyzed": {
+              "type": "text"
+            }
+          }
+        },
+        "location": {
+          "type": "geo_point"
+        },
+        "time": {
+          "type": "date"
+        },
+        "reading": {
+          "type": "double"
+        }
+      }
+    }
+  }
+}
