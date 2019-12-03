@@ -11,7 +11,7 @@ nodejs_container = larka_nodejs
 
 up: docker_up memory info
 restart: docker_down up
-init: docker_down cp_env build docker_up cp_env app_init permission memory api_docs info
+init: docker_down cp_env build docker_up cp_env app_init front_init permission memory api_docs info
 test: test_run
 
 #==========COMMAND==================================================
@@ -62,11 +62,14 @@ memory:
 api_docs:
 	docker-compose exec $(php_container) php artisan l5-swagger:generate
 	sudo chmod 777 -R storage/api-docs
-#===================NODEJS==============================================
+#===================FRONT==============================================
 
 npm_init:
 	docker-compose exec $(nodejs_container) npm install
 	sudo chmod 777 -R node_modules
+
+watch:
+	docker-compose exec $(nodejs_container) npm run watch
 
 #===================INTO_CONTAINER======================================
 

@@ -102,7 +102,7 @@ return [
         'default' => [
             'query' => [
                 // 'example_query' => ExampleQuery::class,
-                'category' => App\GraphQL\Queries\CategoryQuery::class
+                'categories' => App\GraphQL\Queries\CategoryQuery::class
             ],
             'mutation' => [
                 // 'example_mutation'  => ExampleMutation::class,
