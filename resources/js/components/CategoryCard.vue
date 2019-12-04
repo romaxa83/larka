@@ -1,7 +1,11 @@
 <template>
     <div class="card">
         <div class="card-body">
-            <h5 class="card-title">{{category.title}}</h5>
+            <h5 class="card-title">
+                <router-link :to="`/category/${category.id}`">
+                    {{category.title}}
+                </router-link>
+            </h5>
             <p class="card-text">{{category.slug}}</p>
         </div>
     </div>

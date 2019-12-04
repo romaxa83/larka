@@ -14,6 +14,14 @@ class CategoryQuery extends Query
         'description' => 'Category query'
     ];
 
+    // прописываем принимаемык аргументы
+    public function args(): array
+    {
+       return [
+           'categoryId' => ['type' => Type::int()]
+       ];
+    }
+
     public function type(): Type
     {
         //тип прописан в конфиге
@@ -22,6 +30,10 @@ class CategoryQuery extends Query
 
     public function resolve($root, $args)
     {
+        if(isset($args['categoryId'])){
+            return Category::where('id', $args['categoryId'])->get();
+        }
+
         return Category::all();
     }
 }
