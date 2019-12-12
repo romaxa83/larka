@@ -24,4 +24,11 @@ class Category extends Model
 
     protected $table = 'books_category';
 
+    // relation
+
+    public function books()
+    {
+        return $this->hasMany(Book::class);
+    }
+
 }

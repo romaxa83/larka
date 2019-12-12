@@ -50,6 +50,10 @@ class CategoryType extends GraphQLType
                 'type' => Type::nonNull(Type::string()),
                 'description' => 'Last update category'
             ],
+            'books' => [
+                'type' => Type::listOf(GraphQL::type('book')),
+                'description' => 'Books for this category'
+            ],
         ];
     }
 }

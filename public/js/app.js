@@ -1875,6 +1875,22 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   // name: "category",
@@ -1887,7 +1903,10 @@ __webpack_require__.r(__webpack_exports__);
     var _this = this;
 
     axios__WEBPACK_IMPORTED_MODULE_0___default.a.post('/graphql', {
-      query: "{\n                categories(categoryId: ".concat(this.$route.params.id, ") {\n                    id,title,slug\n                }\n            }")
+      query: this.$apiQueries.singleCategory,
+      variables: {
+        categoryId: this.$route.params.id
+      }
     }).then(function (res) {
       console.log(res);
       _this.category = res.data.data.categories[0];
@@ -1936,7 +1955,8 @@ __webpack_require__.r(__webpack_exports__);
     var _this = this;
 
     axios__WEBPACK_IMPORTED_MODULE_0___default.a.post('/graphql', {
-      query: '{categories{id, title, slug}}'
+      // запрос вынесен в queries.js
+      query: this.$apiQueries.dashboard
     }).then(function (res) {
       _this.categories = res.data.data.categories;
     });
@@ -37407,10 +37427,43 @@ var render = function() {
   return _c("div", { staticClass: "container" }, [
     _c("h3", [_vm._v(_vm._s(_vm.category.title))]),
     _vm._v(" "),
-    _c("p", [_vm._v(_vm._s(_vm.category.slug))])
+    _c("p", [_vm._v(_vm._s(_vm.category.slug))]),
+    _vm._v(" "),
+    _c("br"),
+    _vm._v(" "),
+    _c("br"),
+    _vm._v(" "),
+    _c("table", { staticClass: "table table-striped" }, [
+      _vm._m(0),
+      _vm._v(" "),
+      _c(
+        "tbody",
+        _vm._l(_vm.category.books, function(book) {
+          return _c("tr", { key: book.id }, [
+            _c("td", [_vm._v(_vm._s(book.title))]),
+            _vm._v(" "),
+            _c("td", [_vm._v(_vm._s(book.description))])
+          ])
+        }),
+        0
+      )
+    ])
   ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("thead", [
+      _c("tr", [
+        _c("th", [_vm._v("Title")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Description")])
+      ])
+    ])
+  }
+]
 render._withStripped = true
 
 
@@ -52498,6 +52551,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue-router */ "./node_modules/vue-router/dist/vue-router.esm.js");
 /* harmony import */ var _components_App_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/App.vue */ "./resources/js/components/App.vue");
 /* harmony import */ var _routes__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./routes */ "./resources/js/routes.js");
+/* harmony import */ var _queries__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./queries */ "./resources/js/queries.js");
+
 
 
 
@@ -52820,6 +52875,25 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Dashboard_vue_vue_type_template_id_5a2d3b18___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
+
+/***/ }),
+
+/***/ "./resources/js/queries.js":
+/*!*********************************!*\
+  !*** ./resources/js/queries.js ***!
+  \*********************************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vue__WEBPACK_IMPORTED_MODULE_0__);
+
+vue__WEBPACK_IMPORTED_MODULE_0___default.a.prototype.$apiQueries = {
+  dashboard: '{categories{id, title, slug}}',
+  singleCategory: "query fetchSingleCategory($categoryId: Int){\n        categories(categoryId: $categoryId) {\n            id, \n            title\n            books {\n                id,title,description\n            } \n        }\n    }"
+};
 
 /***/ }),
 

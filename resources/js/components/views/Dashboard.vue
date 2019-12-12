@@ -23,7 +23,8 @@
         },
         created() {
             axios.post('/graphql', {
-                query: '{categories{id, title, slug}}'
+                // запрос вынесен в queries.js
+                query: this.$apiQueries.dashboard
             }).then(res => {
                 this.categories = res.data.data.categories;
             })

@@ -125,7 +125,8 @@ return [
         // 'example'           => ExampleType::class,
         // 'relation_example'  => ExampleRelationType::class,
         // \Rebing\GraphQL\Support\UploadType::class,
-        'category' => App\GraphQL\Types\CategoryType::class
+        'category' => App\GraphQL\Types\CategoryType::class,
+        'book' => App\GraphQL\Types\BookType::class
     ],
 
     // The types will be loaded on demand. Default is to load all types on each request
