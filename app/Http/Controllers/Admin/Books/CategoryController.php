@@ -3,7 +3,10 @@
 namespace App\Http\Controllers\Admin\Books;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Books\CategoryCreateRequest;
+use App\Jobs\BooksCategoryAfterCreateJob;
 use App\Repositories\Books\CategoryRepository;
+use App\Services\Books\CategoryService;
 
 class CategoryController extends Controller
 {
@@ -11,16 +14,45 @@ class CategoryController extends Controller
      * @var CategoryRepository
      */
     private $categoryRepository;
+    /**
+     * @var CategoryService
+     */
+    private $categoryService;
 
-    public function __construct(CategoryRepository $categoryRepository)
+    public function __construct(
+        CategoryRepository $categoryRepository,
+        CategoryService $categoryService
+    )
     {
         $this->categoryRepository = $categoryRepository;
+        $this->categoryService = $categoryService;
     }
 
     public function index()
     {
         $categories = $this->categoryRepository->getAll();
 
-        return view('admin.books.index', compact('categories'));
+        return view('admin.books.category.index', compact('categories'));
+    }
+
+    public function create()
+    {
+        return view('admin.books.category.create');
+    }
+
+    public function store(CategoryCreateRequest $request)
+    {
+        try {
+
+            $category = $this->categoryService->create($request);
+
+            $job = new BooksCategoryAfterCreateJob($category);
+            $this->dispatch($job);
+
+        } catch (\Exception $exception){
+
+        }
+
+        return redirect()->route('admin.books.category');
     }
 }

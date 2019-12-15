@@ -2,9 +2,15 @@
 
 @section('content')
 
+    <div class="container-fluid">
+        <div class="row col-6">
+            <a href="{{ route('admin.books.category.create') }}" class="btn btn-block bg-gradient-success btn-sm">Create</a>
+        </div>
+    </div>
+
     <section class="content">
         <div class="container-fluid">
-                <!-- /.row -->
+            <!-- /.row -->
             <div class="row">
                 <div class="col-12">
                     <div class="card">
@@ -13,13 +19,13 @@
                             <div class="card-tools">
                                 <div class="input-group input-group-sm" style="width: 150px;">
                                     <input type="text" name="table_search" class="form-control float-right" placeholder="Search">
-                                     <div class="input-group-append">
-                                         <button type="submit" class="btn btn-default"><i class="fas fa-search"></i></button>
-                                     </div>
+                                    <div class="input-group-append">
+                                        <button type="submit" class="btn btn-default"><i class="fas fa-search"></i></button>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                            <!-- /.card-header -->
+                        <!-- /.card-header -->
                         @if(!$categories->isEmpty())
                             <div class="card-body table-responsive p-0" style="height: 300px;">
                                 <table class="table table-head-fixed">
@@ -42,13 +48,13 @@
                                             <td>{{$category->position}}</td>
                                             <td>{{$category->parent}}</td>
                                             <td>{{$category->created_at}}</td>
-                                    </tr>
+                                        </tr>
                                     @endforeach
                                     </tbody>
                                 </table>
                             </div>
-                        @endif
-                        <!-- /.card-body -->
+                    @endif
+                    <!-- /.card-body -->
                     </div>
                     <!-- /.card -->
                 </div>
@@ -58,4 +64,3 @@
     </section>
 
 @endsection
-
