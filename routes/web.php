@@ -1,15 +1,7 @@
 <?php
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
+use App\Mail\TestMail;
+
 
 Route::get('/', function () {
     return view('welcome');
@@ -18,6 +10,16 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+//Route::get('/testmail', function(){
+//    $data = ['message' => 'fuckkkk'];
+//    Mail::to('romaxa8383@gmail.com')->send(new TestMail($data));
+//    return back();
+//})->name('testmail');
+
+Route::get('admin/chart/chart/line',['uses' => 'Admin\Chart\ChartController@line', 'as' => 'admin.chart.line']);
+Route::get('admin/chart/chart/line-random',['uses' => 'Admin\Chart\ChartController@lineRandom', 'as' => 'admin.chart.line.random']);
+Route::get('admin/chart/chart/pie',['uses' => 'Admin\Chart\ChartController@pie', 'as' => 'admin.chart.pie']);
 
 Route::middleware('auth')->group(function () {
 

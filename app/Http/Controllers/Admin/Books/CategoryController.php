@@ -5,8 +5,10 @@ namespace App\Http\Controllers\Admin\Books;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Books\CategoryCreateRequest;
 use App\Jobs\BooksCategoryAfterCreateJob;
+use App\Mail\TestMail;
 use App\Repositories\Books\CategoryRepository;
 use App\Services\Books\CategoryService;
+use Illuminate\Support\Facades\Mail;
 
 class CategoryController extends Controller
 {
@@ -37,6 +39,15 @@ class CategoryController extends Controller
 
     public function create()
     {
+        //тестовая отправка писем
+//        $data = ([
+//            'name' => 'demo',
+//            'email' =>  'romaxa8383@gmail.com',
+//            'message' => 'demo'
+//        ]);
+//
+//        Mail::to($data['email'])->send(new TestMail($data));
+
         return view('admin.books.category.create');
     }
 
