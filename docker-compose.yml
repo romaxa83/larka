@@ -87,6 +87,24 @@ services:
     working_dir: /app
     tty: true
 
+  larka_redis:
+    image: redis:5.0-alpine
+    container_name: larka_redis
+    networks:
+      default:
+        ipv4_address: 192.168.126.108
+    ports:
+      - 6379:6379
+    volumes:
+     - ./docker/storage/redis:/data
+    command:
+     - 'redis-server'
+     - '--databases 2'
+     - '--save 900 1'
+     - '--save 300 10'
+     - '--save 60 10000'
+     - '--requirepass secret'
+
 #  larka_elastic:
 #    image: docker.elastic.co/elasticsearch/elasticsearch:6.8.1
 #    container_name: elasticsearch

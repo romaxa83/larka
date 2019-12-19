@@ -50,6 +50,11 @@ RUN cd /tmp && wget https://pecl.php.net/get/swoole-4.3.1.tgz && \
     ./configure  --enable-openssl && \
     make && make install
 
+#Redis
+RUN pecl install -o -f redis \
+    && rm -rf /tmp/pear \
+    && docker-php-ext-enable redis
+
 ADD ./docker/config/php/php.ini /usr/local/etc/php/php.ini
 
 # install xdebug

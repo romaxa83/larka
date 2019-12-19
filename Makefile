@@ -6,12 +6,13 @@ elastic_host = http://192.168.126.106:9200
 kibana_host = http://192.168.126.107:5601
 php_container = larka_php
 nodejs_container = larka_nodejs
+redis_container = larka_redis
 
 #==========MAIN_COMMAND=============================================
 
 up: docker_up memory info
 restart: docker_down up
-init: docker_down cp_env build docker_up cp_env app_init front_init permission memory api_docs info
+init: docker_down cp_env build docker_up cp_env app_init permission memory api_docs info
 test: test_run
 
 #==========COMMAND==================================================
@@ -78,6 +79,9 @@ php_bash:
 
 node_bash:
 	docker exec -it $(nodejs_container) bash
+
+redis_bash:
+	docker exec -it $(redis_container) sh
 
 #===================TEST================================================
 

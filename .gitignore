@@ -17,3 +17,4 @@ _ide_helper.php
 /docker/storage/db/*
 /docker/storage/logs/*
 /docker/storage/elastic/*
+/docker/storage/redis/*

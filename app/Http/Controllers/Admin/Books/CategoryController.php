@@ -9,6 +9,7 @@ use App\Mail\TestMail;
 use App\Repositories\Books\CategoryRepository;
 use App\Services\Books\CategoryService;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Redis;
 
 class CategoryController extends Controller
 {
