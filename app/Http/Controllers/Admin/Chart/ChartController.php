@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers\Admin\Chart;
 
+use App\Events\ChartRealTimeEvent;
 use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
+
 
 class ChartController extends Controller
 {
@@ -18,10 +21,36 @@ class ChartController extends Controller
         ];
     }
 
-    public function lineRandom()
+    public function lineRandom(Request $response)
+    {
+        if($response->input('realtime') !== null){
+
+//            for($i = 0; $i > 10; $i++){
+//                sleep(1);
+            event(new ChartRealTimeEvent($this->getData()));
+
+//            }
+        }
+
+//        return $this->getData();
+    }
+
+    public function pie()
     {
         return [
             'labels' => ['март', 'апрель', 'май', 'июнь'],
+            'datasets' => array([
+                'label' => 'Sales',
+                'backgroundColor' => ['#F26202', '#D01919', '#EAAE00', '#B5CC18'],
+                'data' => [15000, 500, 3000, 4500, 100]
+            ])
+        ];
+    }
+
+    private function getData()
+    {
+        return [
+            'labels' => ['март', 'апрель', 'май', 'июнь', 'июль'],
             'datasets' => array(
                 [
                     'label' => 'Gold',
@@ -39,18 +68,6 @@ class ChartController extends Controller
                     'data' => [rand(0, 4000), rand(0, 4000), rand(0, 4000), rand(0, 4000), rand(0, 4000)]
                 ],
             )
-        ];
-    }
-
-    public function pie()
-    {
-        return [
-            'labels' => ['март', 'апрель', 'май', 'июнь'],
-            'datasets' => array([
-                'label' => 'Sales',
-                'backgroundColor' => ['#F26202', '#D01919', '#EAAE00', '#B5CC18'],
-                'data' => [15000, 500, 3000, 4500, 100]
-            ])
         ];
     }
 }

@@ -9,6 +9,7 @@
     "license": "MIT",
     "require": {
         "php": "^7.2",
+        "cboden/ratchet": "^0.4.1",
         "darkaonline/l5-swagger": "^6.0",
         "doctrine/dbal": "^2.10",
         "elasticsearch/elasticsearch": "~6.7.0",
@@ -20,6 +21,7 @@
         "laravel/tinker": "^1.0",
         "laravel/ui": "^1.1",
         "nwidart/laravel-modules": "^6.2",
+        "react/zmq": "^0.4.0",
         "rebing/graphql-laravel": "^3.1",
         "zircote/swagger-php": "2.*"
     },

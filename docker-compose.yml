@@ -82,6 +82,11 @@ services:
   larka_nodejs:
     image: node:10.11-jessie
     container_name: larka_nodejs
+    networks:
+      default:
+        ipv4_address: 192.168.126.109
+    ports:
+      - 3000:3000
     volumes:
       - ./:/app
     working_dir: /app

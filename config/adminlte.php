@@ -30,7 +30,7 @@ return [
     |
     */
 
-    'logo' => '<b>Admin</b>Larka',
+    'logo' => '<b>Admin</b>Larkas',
     'logo_img' => 'vendor/adminlte/dist/img/AdminLTELogo.png',
     'logo_img_class' => 'brand-image-xl',
     'logo_img_xl' => null,
@@ -175,7 +175,7 @@ return [
     'menu' => [
         [
             'text' => 'search',
-            'search' => true,
+            'search' => false,
             'topnav' => true,
         ],
         [
@@ -187,7 +187,7 @@ return [
             'text'        => 'pages',
             'url'         => 'admin/pages',
             'icon'        => 'far fa-fw fa-file',
-            'label'       => 4,
+            'label'       => 3,
             'label_color' => 'success',
         ],
         ['header' => 'account_settings'],
@@ -197,18 +197,23 @@ return [
             'icon' => 'fas fa-fw fa-user',
         ],
         [
-            'text' => 'change_password',
-            'url'  => 'admin/settings',
+            'text' => 'Socket',
+            'url'  => 'admin/socket',
             'icon' => 'fas fa-fw fa-lock',
         ],
         [
-            'text'    => 'Library',
+            'text' => 'Socket',
+            'url'  => 'admin/socket',
+            'icon' => 'fas fa-fw fa-lock',
+        ],
+        [
+            'text'    => 'Librarys',
             'icon'    => 'fas fa-fw fa-share',
             'submenu' => [
                 [
                     'text' => 'Books Category',
                     'url'  => 'admin/books/category',
-//                    'url'  => route('admin.books.category'),
+                    'url'  => route('admin.books.category'),
                 ],
                 [
                     'text'    => 'level_one',

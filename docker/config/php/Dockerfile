@@ -55,6 +55,11 @@ RUN pecl install -o -f redis \
     && rm -rf /tmp/pear \
     && docker-php-ext-enable redis
 
+#ZMQ for websocket
+RUN apt-get update && apt-get install -y zlib1g-dev libzmq3-dev \
+    && pecl install zmq-beta \
+    && docker-php-ext-enable zmq
+
 ADD ./docker/config/php/php.ini /usr/local/etc/php/php.ini
 
 # install xdebug
