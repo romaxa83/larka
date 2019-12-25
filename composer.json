@@ -23,6 +23,7 @@
         "nwidart/laravel-modules": "^6.2",
         "react/zmq": "^0.4.0",
         "rebing/graphql-laravel": "^3.1",
+        "workerman/workerman": "^3.5",
         "zircote/swagger-php": "2.*"
     },
     "require-dev": {

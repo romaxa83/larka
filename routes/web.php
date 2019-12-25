@@ -29,6 +29,7 @@ Route::middleware('auth')->group(function () {
     Route::post('admin/books/category/store',['uses' => 'Admin\Books\CategoryController@store', 'as' => 'admin.books.category.store']);
 
     Route::get('admin/socket',['uses' => 'Admin\Socket\SocketController@index', 'as' => 'admin.socket']);
+    Route::get('admin/socket-push',['uses' => 'Admin\Socket\SocketController@push', 'as' => 'admin.socket.push']);
 
 });
 

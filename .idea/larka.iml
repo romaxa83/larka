@@ -139,6 +139,7 @@
       <excludeFolder url="file://$MODULE_DIR$/vendor/vlucas/phpdotenv" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/webmozart/assert" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/webonyx/graphql-php" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/workerman/workerman" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/zendframework/zend-diactoros" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/zircote/swagger-php" />
     </content>
@@ -282,6 +283,7 @@
           <root url="file://$MODULE_DIR$/vendor/vlucas/phpdotenv" />
           <root url="file://$MODULE_DIR$/vendor/webmozart/assert" />
           <root url="file://$MODULE_DIR$/vendor/webonyx/graphql-php" />
+          <root url="file://$MODULE_DIR$/vendor/workerman/workerman" />
           <root url="file://$MODULE_DIR$/vendor/zendframework/zend-diactoros" />
           <root url="file://$MODULE_DIR$/vendor/zircote/swagger-php" />
         </CLASSES>
@@ -421,6 +423,7 @@
           <root url="file://$MODULE_DIR$/vendor/vlucas/phpdotenv" />
           <root url="file://$MODULE_DIR$/vendor/webmozart/assert" />
           <root url="file://$MODULE_DIR$/vendor/webonyx/graphql-php" />
+          <root url="file://$MODULE_DIR$/vendor/workerman/workerman" />
           <root url="file://$MODULE_DIR$/vendor/zendframework/zend-diactoros" />
           <root url="file://$MODULE_DIR$/vendor/zircote/swagger-php" />
         </SOURCES>

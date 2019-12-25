@@ -8,24 +8,32 @@
             <button onclick="send();" class="btn btn-primary btn-xs text mt-1 mh-10">Chat</button>
         </div>
     </div>
+    <script>
+        let ws = new WebSocket('ws://192.168.126.102:8080/?user=tester01');
+        // let ws = new WebSocket('ws://192.168.126.102:8080');
 
-   <script>
-       var conn = new WebSocket('ws://192.168.126.102:8080');
+        ws.addEventListener('message', (event) => {
+            console.log('Message from server: ' + event.data);
+        })
+    </script>
 
-       conn.onopen = function(e) {
-       console.log(e);
-       };
+   {{--<script>--}}
+       {{--var conn = new WebSocket('ws://192.168.126.102:8080');--}}
 
-       conn.onmessage = function(e) {
-       console.log('Получены данные: ' + e.data);
-       };
+       {{--conn.onopen = function(e) {--}}
+       {{--console.log(e);--}}
+       {{--};--}}
 
-       function send(){
-           let data = 'Данные для отправки: ' + Math.random();
-           conn.send(data);
-           console.log('Отправленно: ' + data);
-       }
+       {{--conn.onmessage = function(e) {--}}
+       {{--console.log('Получены данные: ' + e.data);--}}
+       {{--};--}}
 
-   </script>
+       {{--function send(){--}}
+           {{--let data = 'Данные для отправки: ' + Math.random();--}}
+           {{--conn.send(data);--}}
+           {{--console.log('Отправленно: ' + data);--}}
+       {{--}--}}
+
+   {{--</script>--}}
 
 @endsection

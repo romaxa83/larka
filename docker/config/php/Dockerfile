@@ -40,7 +40,8 @@ RUN docker-php-ext-configure intl \
            --with-freetype-dir \
     && docker-php-ext-install gd \
     && docker-php-ext-install pdo pdo_mysql opcache zip intl \
-    && docker-php-ext-install xmlrpc
+    && docker-php-ext-install xmlrpc \
+    && docker-php-ext-install pcntl
 
 # Swoole
 RUN cd /tmp && wget https://pecl.php.net/get/swoole-4.3.1.tgz && \

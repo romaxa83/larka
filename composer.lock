@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "2cd4bb411f8fc3e954b4cadb4bdc521f",
+    "content-hash": "923d92b3fc692b170852b022fa290d2b",
     "packages": [
         {
             "name": "almasaeed2010/adminlte",
@@ -5332,6 +5332,52 @@
                 "graphql"
             ],
             "time": "2019-08-25T10:32:47+00:00"
+        },
+        {
+            "name": "workerman/workerman",
+            "version": "v3.5.22",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/walkor/Workerman.git",
+                "reference": "488f108f9e446f31bac4d689bb9f9fe3705862cf"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/walkor/Workerman/zipball/488f108f9e446f31bac4d689bb9f9fe3705862cf",
+                "reference": "488f108f9e446f31bac4d689bb9f9fe3705862cf",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3"
+            },
+            "suggest": {
+                "ext-event": "For better performance. "
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Workerman\\": "./"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "walkor",
+                    "email": "walkor@workerman.net",
+                    "homepage": "http://www.workerman.net",
+                    "role": "Developer"
+                }
+            ],
+            "description": "An asynchronous event driven PHP framework for easily building fast, scalable network applications.",
+            "homepage": "http://www.workerman.net",
+            "keywords": [
+                "asynchronous",
+                "event-loop"
+            ],
+            "time": "2019-09-06T03:42:47+00:00"
         },
         {
             "name": "zendframework/zend-diactoros",
