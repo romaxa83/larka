@@ -11,6 +11,10 @@ class User extends Authenticatable
 {
     use HasApiTokens, Notifiable;
 
+    const STATUS_DRAFT = 0;
+    const STATUS_ACTIVE = 1;
+    const STATUS_BAN = 2;
+
     /**
      * The attributes that are mass assignable.
      *
@@ -37,4 +41,22 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    //relation
+    public function roles()
+    {
+        return $this->belongsToMany(UserRole::class, 'users_role_pivot', 'user_id', 'role_id');
+    }
+
+    public function setRole(string $role)
+    {
+        $role = UserRole::where(['alias' => $role])->first();
+        $this->roles()->attach($role->id);
+    }
+
+    public function getRolesString()
+    {
+        return $this->roles()->pluck('role')->implode(',');
+    }
+
 }
