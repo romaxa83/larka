@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Api\Auth;
 
 use App\Http\Controllers\Api\ApiController;
-use App\Models\User;
+use App\Models\User\User;
 use App\Repositories\UserRepository;
 use App\Services\OAuthService;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;

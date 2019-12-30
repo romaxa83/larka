@@ -2,7 +2,7 @@
 
 namespace App\Repositories;
 
-use App\Models\User;
+use App\Models\User\User;
 use Illuminate\Support\Facades\DB;
 
 class UserRepository
@@ -12,12 +12,9 @@ class UserRepository
      * @return mixed
      * @throws \Exception
      */
-    public function getUserById($userId)
+    public function getUserById($userId) : ?User
     {
-        if(!$user = User::find($userId)){
-            throw new \Exception('Not found user');
-        }
-        return $user;
+        return User::query()->with(['roles'])->where('id',$userId)->firstOrFail();
     }
 
     public function getEmailByLogin($login)
@@ -28,6 +25,11 @@ class UserRepository
     public function getUserByLogin($login)
     {
         return User::where('name',$login)->first();
+    }
+
+    public function getAll()
+    {
+        return User::query()->with(['roles'])->get();
     }
 //
 //    public function getUsersForAdminPanel($limit = User::DEFAULT_LIMIT, $offset = User::DEFAULT_PAGE)

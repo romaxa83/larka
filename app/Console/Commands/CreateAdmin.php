@@ -2,7 +2,8 @@
 
 namespace App\Console\Commands;
 
-use App\Models\User;
+use App\Models\User\User;
+use App\Models\User\Role;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Hash;
 use Validator;
@@ -56,7 +57,10 @@ class CreateAdmin extends Command
         $admin->name = 'admin';
         $admin->password = Hash::make('admin');
         $admin->email = $this->email;
+        $admin->status = User::STATUS_ACTIVE;
         $admin->save();
+
+        $admin->setRole(Role::ADMIN_ALIAS);
 
         $this->info('Admin created.');
     }

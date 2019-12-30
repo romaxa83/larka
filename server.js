@@ -1,6 +1,7 @@
 const http = require('http').Server();
 const io = require('socket.io')(http);
 const Redis = require('ioredis');
+const port = 3000;
 
 let redis = new Redis({
     port: 6379, // Redis port
@@ -19,6 +20,18 @@ redis.on('message', function(channel, message){
     io.emit(channel + ':' + message.event, message.data);
 });
 
+const requestHandler = (req, res) => {
+    res.end('OK');
+};
+
+// const server = http.createServer(requestHandler);
+// server.listen(port, (err) => {
+//     if(err) {
+//         return console.log('oops, something wrong')
+//     }
+//
+//     console.log(`server is listening on ${port}`);
+// });
 http.listen(3000, function(){
     console.log('Listening on port: 3000');
 });

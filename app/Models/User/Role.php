@@ -1,18 +1,18 @@
 <?php
 
-namespace App\Models;
+namespace App\Models\User;
 
 use Illuminate\Database\Eloquent\Model;
 
 /**
- * App\Models\UserRole
+ * App\Models\Role
  *
  * @property int $id
  * @property string $role
  * @property string $alias
  */
 
-class UserRole extends Model
+class Role extends Model
 {
     public $timestamps = false;
 

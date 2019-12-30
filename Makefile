@@ -41,6 +41,7 @@ app_init:
 	docker-compose exec $(php_container) php artisan ide-helper:generate
 	docker-compose exec $(php_container) php artisan ide-helper:meta
 	docker-compose exec $(php_container) php artisan passport:install
+	docker-compose exec $(php_container) php artisan db:seed --class=UserRoleTableSeeder
 	docker-compose exec $(php_container) php artisan admin:create
 
 bench:

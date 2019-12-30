@@ -1,15 +1,15 @@
 <?php
 
-namespace App\Models;
+namespace App\Models\User;
 
-use Illuminate\Contracts\Auth\MustVerifyEmail;
+use App\Traits\Roleable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Passport\HasApiTokens;
 
 class User extends Authenticatable
 {
-    use HasApiTokens, Notifiable;
+    use HasApiTokens, Notifiable, Roleable;
 
     const STATUS_DRAFT = 0;
     const STATUS_ACTIVE = 1;
@@ -41,22 +41,5 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
-
-    //relation
-    public function roles()
-    {
-        return $this->belongsToMany(UserRole::class, 'users_role_pivot', 'user_id', 'role_id');
-    }
-
-    public function setRole(string $role)
-    {
-        $role = UserRole::where(['alias' => $role])->first();
-        $this->roles()->attach($role->id);
-    }
-
-    public function getRolesString()
-    {
-        return $this->roles()->pluck('role')->implode(',');
-    }
 
 }
