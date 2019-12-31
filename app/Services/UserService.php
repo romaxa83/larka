@@ -26,9 +26,18 @@ class UserService
         $user = new User();
         $user->name = $request['login'];
         $user->email = $request['email'];
+        $user->status = User::STATUS_DRAFT;
         $user->password = Hash::make($request['password']);
 
         $user->save();
+
+        if(isset($request['roles'])){
+            $user->attachRoles($request['roles']);
+        } else {
+            $user->setRole(Role::USER_ALIAS);
+        }
+
+        return $user;
     }
 
     public function createByAdmin(UserRequest\CreateRequest $request): User

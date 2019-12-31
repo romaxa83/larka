@@ -5,10 +5,10 @@ import routes from './routes';
 
 import './queries';
 
-// Vue.component('chartline-component', require('./components/LineChart.vue'));
-
 require('./bootstrap');
+
 Vue.use(VueRouter);
+
 const router = new VueRouter({routes});
 
 new Vue({

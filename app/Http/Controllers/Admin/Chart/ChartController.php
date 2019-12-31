@@ -23,16 +23,16 @@ class ChartController extends Controller
 
     public function lineRandom(Request $response)
     {
-        if($response->input('realtime') !== null){
-
-//            for($i = 0; $i > 10; $i++){
+//        if($response->input('realtime') !== null){
+//
+//            for($i = 0; $i < 10; $i++){
 //                sleep(1);
-            event(new ChartRealTimeEvent($this->getData()));
-
+//            event(new ChartRealTimeEvent($this->getData()));
+//
 //            }
-        }
+//        }
 
-//        return $this->getData();
+        return $this->getData();
     }
 
     public function pie()

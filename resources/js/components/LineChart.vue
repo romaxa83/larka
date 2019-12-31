@@ -26,7 +26,7 @@
             }
         },
         mounted() {
-            var socket = io('http://192.168.126.109:3000');
+            let socket = io('http://192.168.126.109:3000');
             console.log('euu');
             socket.on('real-chart:App\\Events\\ChartRealTimeEvent', function(data){
                 console.log(data.result);
