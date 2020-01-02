@@ -14,39 +14,39 @@
 </template>
 
 <script>
-    import LineChart from './LineChart'
-
-    export default {
-        components: {
-            LineChart
-        },
-        data: function (){
-            return {
-                data: []
-            }
-        },
-        mounted() {
-            let socket = io('http://192.168.126.109:3000');
-            console.log('euu');
-            socket.on('real-chart:App\\Events\\ChartRealTimeEvent', function(data){
-                console.log(data.result);
-                this.data = data.result;
-            }.bind(this));
-
-            this.update();
-            this.chart()
-        },
-        methods: {
-            chart: function(){
-                axios.get('/admin/chart/chart/line').then((res) => {
-                    this.data = res.data;
-                });
-            },
-            update: function(){
-                axios.get('/admin/chart/chart/line-random?realtime=true').then((res) => {
-                    this.data = res.data;
-                });
-            }
-        }
-    }
+    // import LineChart from './LineChart'
+    //
+    // export default {
+    //     components: {
+    //         LineChart
+    //     },
+    //     data: function (){
+    //         return {
+    //             data: []
+    //         }
+    //     },
+    //     mounted() {
+    //         let socket = io('http://192.168.126.109:3000');
+    //         console.log('euu');
+    //         socket.on('real-chart:App\\Events\\ChartRealTimeEvent', function(data){
+    //             console.log(data.result);
+    //             this.data = data.result;
+    //         }.bind(this));
+    //
+    //         this.update();
+    //         this.chart()
+    //     },
+    //     methods: {
+    //         chart: function(){
+    //             axios.get('/admin/chart/chart/line').then((res) => {
+    //                 this.data = res.data;
+    //             });
+    //         },
+    //         update: function(){
+    //             axios.get('/admin/chart/chart/line-random?realtime=true').then((res) => {
+    //                 this.data = res.data;
+    //             });
+    //         }
+    //     }
+    // }
 </script>

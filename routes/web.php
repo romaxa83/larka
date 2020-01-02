@@ -25,6 +25,9 @@ Route::get('admin/chart/chart/pie',['uses' => 'Admin\Chart\ChartController@pie',
 
 Route::post('admin/chart/chart/line',['uses' => 'Admin\Chart\ChartController@line', 'as' => 'admin.chart.line']);
 
+// маршруты для тестирования сокетов (laravel-echo)
+Route::post('/echo-chat/messages',['uses' => 'Admin\Chat\ChatController@publicMessage', 'as' => 'echo.chat.message']);
+
 Route::middleware('auth')->group(function () {
 
     Route::get('admin',['uses' => 'Admin\HomeController@index', 'as' => 'admin.home']);
