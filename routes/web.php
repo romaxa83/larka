@@ -27,17 +27,29 @@ Route::post('admin/chart/chart/line',['uses' => 'Admin\Chart\ChartController@lin
 
 // маршруты для тестирования сокетов (laravel-echo)
 Route::post('/echo-chat/messages',['uses' => 'Admin\Chat\ChatController@publicMessage', 'as' => 'echo.chat.message']);
+Route::post('/private-chat/messages',['uses' => 'Admin\Chat\ChatController@privateMessage', 'as' => 'echo.private.chat.message']);
+
+Route::get('/room/{room}',['uses' => 'Admin\Chat\ChatController@room', 'as' => 'room.chat']);
+Route::post('/room/{room}',['uses' => 'Admin\Chat\ChatController@getRoom', 'as' => 'room.chat']);
+
+Route::get('/private-message',['uses' => 'Admin\Chat\ChatController@privateMessage', 'as' => 'private.chat.message']);
+Route::post('/get-auth-user',['uses' => 'Admin\UserController@getAuthUser', 'as' => 'auth.user']);
 
 Route::middleware('auth')->group(function () {
 
     Route::get('admin',['uses' => 'Admin\HomeController@index', 'as' => 'admin.home']);
 
+    /* route for User */
     Route::get('admin/users',['uses' => 'Admin\UserController@index', 'as' => 'admin.users']);
-
     Route::get('admin/user/create',['uses' => 'Admin\UserController@create', 'as' => 'admin.user.create']);
     Route::post('admin/user/create',['uses' => 'Admin\UserController@store', 'as' => 'admin.user.create']);
     Route::get('admin/user/edit/{id}',['uses' => 'Admin\UserController@edit', 'as' => 'admin.user.edit']);
     Route::post('admin/user/edit/{id}',['uses' => 'Admin\UserController@update', 'as' => 'admin.user.update']);
+
+    /* route for Chat */
+    Route::get('admin/chat-rooms',['uses' => 'Admin\Chat\ChatController@index', 'as' => 'admin.chat-rooms']);
+    Route::get('admin/chat-room/create',['uses' => 'Admin\Chat\ChatController@create', 'as' => 'admin.chat-room.create']);
+    Route::post('admin/chat-room/create',['uses' => 'Admin\Chat\ChatController@store', 'as' => 'admin.chat-room.create']);
 
 
     Route::get('admin/books/category',['uses' => 'Admin\Books\CategoryController@index', 'as' => 'admin.books.category']);
@@ -48,7 +60,6 @@ Route::middleware('auth')->group(function () {
 
     Route::get('admin/socket',['uses' => 'Admin\Socket\SocketController@index', 'as' => 'admin.socket']);
     Route::get('admin/socket-push',['uses' => 'Admin\Socket\SocketController@push', 'as' => 'admin.socket.push']);
-
 });
 
 

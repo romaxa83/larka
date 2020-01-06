@@ -2,6 +2,7 @@
 
 namespace App\Services;
 
+use App\Events\PrivateMessageEvent;
 use App\Http\Requests\Auth\RegisterRequest;
 use App\Http\Requests\User as UserRequest;
 use App\Models\User\Role;
@@ -78,6 +79,11 @@ class UserService
         } else {
             $user->setRole(Role::USER_ALIAS);
         }
+
+        PrivateMessageEvent::dispatch([
+            'channels' => 'pr.message.' . $user->id,
+            'message' => 'you have a new role'
+        ]);
 
         return $user;
     }

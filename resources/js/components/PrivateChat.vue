@@ -2,7 +2,7 @@
     <div class="container">
         <div class="row">
             <div class="col-sm-12">
-                <h2>Echo-chat</h2>
+                <h2>Private-chat</h2>
 
                 <textarea class="form-control" disabled name="" cols="30" rows="10">{{ messages.join('\n') }}</textarea>
                 <hr>
@@ -18,22 +18,31 @@
     export default {
         data: function (){
             return {
+                room: [],
                 messages: [],
                 textMessage: ''
             }
         },
         mounted() {
-            console.log('ECHO-CHANNEL for socket to resources/js/components/EchoChat.vue');
-
-            window.Echo.channel('echo-chat')
-                .listen('EchoChatEvent', ({message}) => {
-                    this.messages.push(message)
+            console.log('PRIVATE-ECHO-CHANNEL for socket to resources/js/components/PrivateChat.vue');
+            let id = this.$route.params.id;
+            window.Echo.private('room.' + id)
+                .listen('PrivateEchoChatEvent', ({data}) => {
+                    this.messages.push(data.body)
                 })
 
         },
+        created() {
+            let id = this.$route.params.id;
+
+            axios.post('/room/' + id, {
+            }).then(res => {
+                this.room = res.data;
+            })
+        },
         methods: {
             sendMessage() {
-                axios.post('/echo-chat/messages', {body: this.textMessage});
+                axios.post('/private-chat/messages', {body: this.textMessage, room_id: this.room.id});
                 this.messages.push(this.textMessage);
                 this.textMessage = '';
             }

@@ -17,6 +17,12 @@
                         <p>Users</p>
                     </a>
                 </li>
+                <li class="nav-item">
+                    <a href="{{ route('admin.chat-rooms') }}" class="nav-link">
+                        <i class="nav-icon fas fa-comments"></i>
+                        <p>Chat</p>
+                    </a>
+                </li>
                 <li class="nav-header">EXAMPLES</li>
                 <li class="nav-item has-treeview">
                     <a href="#" class="nav-link">

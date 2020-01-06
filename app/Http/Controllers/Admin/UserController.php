@@ -8,6 +8,7 @@ use App\Repositories\RoleRepository;
 use App\Repositories\UserRepository;
 use App\Services\UserService;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
@@ -81,5 +82,21 @@ class UserController extends Controller
             ->with('success', 'User update');
     }
 
+    // контроллер для получение авторизованого пользователя
+    // для работы с приватными сообшениями через сокеты
+    public function getAuthUser()
+    {
+        if($user = Auth::user()){
 
+            return response()->json([
+                'data' => $user,
+                'success' => true
+            ],200);
+        };
+
+        return response()->json([
+            'data' => [],
+            'success' => false
+        ], 200);
+    }
 }

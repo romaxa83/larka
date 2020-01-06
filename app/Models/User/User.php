@@ -42,4 +42,9 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+    // relation for chat-room
+    public function rooms()
+    {
+        return $this->belongsToMany( ChatRoom::class);
+    }
 }

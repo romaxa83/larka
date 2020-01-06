@@ -39,6 +39,19 @@ services:
       - larka_db_testing
       - larka_cache
 
+  larka_echo:
+    build:
+      context: ./
+      dockerfile: docker/config/echo/Dockerfile
+    container_name: larka_echo
+    hostname: larka_echo
+    networks:
+      default:
+        ipv4_address: 192.168.126.112
+    volumes:
+      - ./:/app
+    working_dir: /app
+
   larka_db:
     image: mariadb
     container_name: larka_db

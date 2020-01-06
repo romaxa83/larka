@@ -10,7 +10,7 @@ redis_container = larka_redis
 
 #==========MAIN_COMMAND=============================================
 
-up: docker_up memory info
+up: docker_up info
 restart: docker_down up
 init: docker_down cp_env build docker_up cp_env app_init permission memory api_docs info
 test: test_run
@@ -58,8 +58,8 @@ test-run:
 	docker-compose exec $(php_container) php ./vendor/bin/phpunit
 
 # for elasticsearch
-memory:
-	sudo sysctl -w vm.max_map_count=262144
+#memory:
+	#sudo sysctl -w vm.max_map_count=262144
 
 api_docs:
 	docker-compose exec $(php_container) php artisan l5-swagger:generate
