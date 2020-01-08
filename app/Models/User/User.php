@@ -2,6 +2,7 @@
 
 namespace App\Models\User;
 
+use App\Models\Image;
 use App\Traits\Roleable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -46,5 +47,10 @@ class User extends Authenticatable
     public function rooms()
     {
         return $this->belongsToMany( ChatRoom::class);
+    }
+
+    public function image()
+    {
+        return $this->hasOne(Image::class);
     }
 }

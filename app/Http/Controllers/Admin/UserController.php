@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\UploadRequest;
 use App\Http\Requests\User;
+use App\Models\Image;
 use App\Repositories\RoleRepository;
 use App\Repositories\UserRepository;
 use App\Services\UserService;
@@ -80,6 +82,27 @@ class UserController extends Controller
 
         return redirect()->route('admin.users')
             ->with('success', 'User update');
+    }
+
+    public function show($id)
+    {
+        $user = $this->userRepository->getUserById($id);
+
+        return view('admin.user.show', compact('user'));
+    }
+
+    public function upload(UploadRequest $request)
+    {
+        $url = $request->file('image')
+            ->store('uploads', 'public');
+
+        $image = new Image();
+        $image->user_id = $request['user_id'];
+        $image->url = $url;
+        $image->base_name = $url;
+        $image->save();
+
+        return redirect()->route('admin.user',['id' => $request['user_id']]);
     }
 
     // контроллер для получение авторизованого пользователя

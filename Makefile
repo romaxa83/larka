@@ -43,6 +43,7 @@ app_init:
 	docker-compose exec $(php_container) php artisan passport:install
 	docker-compose exec $(php_container) php artisan db:seed --class=UserRoleTableSeeder
 	docker-compose exec $(php_container) php artisan admin:create
+	docker-compose exec $(php_container) php artisan storage:link
 
 bench:
 	docker-compose exec $(php_container) php bench.php -m=64 -t=30

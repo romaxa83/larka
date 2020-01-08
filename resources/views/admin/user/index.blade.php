@@ -70,6 +70,7 @@
                                             <td>{{$user->created_at}}</td>
                                             <td>
                                                 <a href="{{route('admin.user.edit',['id' => $user->id])}}"><i class="fas fa-user-edit"></i></a>
+                                                <a href="{{route('admin.user',['id' => $user->id])}}"><i class="far fa-eye"></i></a>
                                             </td>
                                         </tr>
                                     @endforeach

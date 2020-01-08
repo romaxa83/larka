@@ -15,6 +15,7 @@
         "elasticsearch/elasticsearch": "~6.7.0",
         "fideloper/proxy": "^4.0",
         "guzzlehttp/guzzle": "^6.4",
+        "intervention/image": "^2.5",
         "jeroennoten/laravel-adminlte": "^3.0",
         "laracasts/flash": "^3.0",
         "laravel/framework": "^6.2",

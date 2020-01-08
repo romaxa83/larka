@@ -12,9 +12,9 @@ class UserRepository
      * @return mixed
      * @throws \Exception
      */
-    public function getUserById($userId) : ?User
+    public function getUserById($userId) : User
     {
-        return User::query()->with(['roles'])->where('id',$userId)->firstOrFail();
+        return User::query()->with(['roles', 'image'])->where('id',$userId)->firstOrFail();
     }
 
     public function getEmailByLogin($login)
