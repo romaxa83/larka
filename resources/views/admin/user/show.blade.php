@@ -66,7 +66,7 @@
                                             </div>
                                         </div>
                                         <div class="col-md-6">
-                                            <img src="image/{{ $user->image ? $user->image->url : '' }}" alt="user-img">
+                                            <img src="{{ $user->image ? $user->image->url : '' }}" alt="user-img">
                                         </div>
                                     </div>
                                 </div>

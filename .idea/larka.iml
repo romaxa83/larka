@@ -8,6 +8,7 @@
       <excludeFolder url="file://$MODULE_DIR$/vendor/barryvdh/laravel-debugbar" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/barryvdh/laravel-ide-helper" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/barryvdh/reflection-docblock" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/cakephp/chronos" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/cboden/ratchet" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/composer" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/darkaonline/l5-swagger" />
@@ -45,6 +46,7 @@
       <excludeFolder url="file://$MODULE_DIR$/vendor/justinrainbow/json-schema" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/laracasts/flash" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/laravel/framework" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/laravel/horizon" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/laravel/passport" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/laravel/tinker" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/laravel/ui" />
@@ -76,6 +78,7 @@
       <excludeFolder url="file://$MODULE_DIR$/vendor/phpunit/php-timer" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/phpunit/php-token-stream" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/phpunit/phpunit" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/predis/predis" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/psr/container" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/psr/http-factory" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/psr/http-message" />
@@ -154,6 +157,7 @@
           <root url="file://$MODULE_DIR$/vendor/barryvdh/laravel-debugbar" />
           <root url="file://$MODULE_DIR$/vendor/barryvdh/laravel-ide-helper" />
           <root url="file://$MODULE_DIR$/vendor/barryvdh/reflection-docblock" />
+          <root url="file://$MODULE_DIR$/vendor/cakephp/chronos" />
           <root url="file://$MODULE_DIR$/vendor/cboden/ratchet" />
           <root url="file://$MODULE_DIR$/vendor/composer" />
           <root url="file://$MODULE_DIR$/vendor/darkaonline/l5-swagger" />
@@ -191,6 +195,7 @@
           <root url="file://$MODULE_DIR$/vendor/justinrainbow/json-schema" />
           <root url="file://$MODULE_DIR$/vendor/laracasts/flash" />
           <root url="file://$MODULE_DIR$/vendor/laravel/framework" />
+          <root url="file://$MODULE_DIR$/vendor/laravel/horizon" />
           <root url="file://$MODULE_DIR$/vendor/laravel/passport" />
           <root url="file://$MODULE_DIR$/vendor/laravel/tinker" />
           <root url="file://$MODULE_DIR$/vendor/laravel/ui" />
@@ -222,6 +227,7 @@
           <root url="file://$MODULE_DIR$/vendor/phpunit/php-timer" />
           <root url="file://$MODULE_DIR$/vendor/phpunit/php-token-stream" />
           <root url="file://$MODULE_DIR$/vendor/phpunit/phpunit" />
+          <root url="file://$MODULE_DIR$/vendor/predis/predis" />
           <root url="file://$MODULE_DIR$/vendor/psr/container" />
           <root url="file://$MODULE_DIR$/vendor/psr/http-factory" />
           <root url="file://$MODULE_DIR$/vendor/psr/http-message" />
@@ -296,6 +302,7 @@
           <root url="file://$MODULE_DIR$/vendor/barryvdh/laravel-debugbar" />
           <root url="file://$MODULE_DIR$/vendor/barryvdh/laravel-ide-helper" />
           <root url="file://$MODULE_DIR$/vendor/barryvdh/reflection-docblock" />
+          <root url="file://$MODULE_DIR$/vendor/cakephp/chronos" />
           <root url="file://$MODULE_DIR$/vendor/cboden/ratchet" />
           <root url="file://$MODULE_DIR$/vendor/composer" />
           <root url="file://$MODULE_DIR$/vendor/darkaonline/l5-swagger" />
@@ -333,6 +340,7 @@
           <root url="file://$MODULE_DIR$/vendor/justinrainbow/json-schema" />
           <root url="file://$MODULE_DIR$/vendor/laracasts/flash" />
           <root url="file://$MODULE_DIR$/vendor/laravel/framework" />
+          <root url="file://$MODULE_DIR$/vendor/laravel/horizon" />
           <root url="file://$MODULE_DIR$/vendor/laravel/passport" />
           <root url="file://$MODULE_DIR$/vendor/laravel/tinker" />
           <root url="file://$MODULE_DIR$/vendor/laravel/ui" />
@@ -364,6 +372,7 @@
           <root url="file://$MODULE_DIR$/vendor/phpunit/php-timer" />
           <root url="file://$MODULE_DIR$/vendor/phpunit/php-token-stream" />
           <root url="file://$MODULE_DIR$/vendor/phpunit/phpunit" />
+          <root url="file://$MODULE_DIR$/vendor/predis/predis" />
           <root url="file://$MODULE_DIR$/vendor/psr/container" />
           <root url="file://$MODULE_DIR$/vendor/psr/http-factory" />
           <root url="file://$MODULE_DIR$/vendor/psr/http-message" />

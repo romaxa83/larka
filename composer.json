@@ -19,6 +19,7 @@
         "jeroennoten/laravel-adminlte": "^3.0",
         "laracasts/flash": "^3.0",
         "laravel/framework": "^6.2",
+        "laravel/horizon": "^3.4",
         "laravel/passport": "^8.0",
         "laravel/tinker": "^1.0",
         "laravel/ui": "^1.1",
