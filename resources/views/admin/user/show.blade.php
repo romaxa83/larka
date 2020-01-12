@@ -67,8 +67,9 @@
                                                 </div>
                                             </div>
                                         </div>
+
                                         <div class="col-md-6">
-                                            <img src="{{ $user->image ? $user->image->url : '' }}" alt="user-img">
+                                            <img class="img-thumbnail" src="{{ $user->avatar }}" alt="user-img">
                                         </div>
                                     </div>
                                 </div>

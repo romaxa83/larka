@@ -53,4 +53,9 @@ class User extends Authenticatable
     {
         return $this->hasOne(Image::class);
     }
+
+    public function getAvatarAttribute()
+    {
+        return $this->image ? $this->image->getPath() : null;
+    }
 }

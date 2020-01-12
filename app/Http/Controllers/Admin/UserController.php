@@ -11,6 +11,8 @@ use App\Repositories\UserRepository;
 use App\Services\UserService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Storage;
 
 class UserController extends Controller
 {
@@ -100,11 +102,25 @@ class UserController extends Controller
         $url = $request->file('image')
             ->store('uploads', 'public');
 
-        $image = new Image();
-        $image->user_id = $request['user_id'];
-        $image->url = $url;
-        $image->base_name = $url;
-        $image->save();
+
+        if($img = Image::where('user_id', '=', $request['user_id'])->first()){
+
+            $f = Storage::disk('public');
+            $f->delete($img->url);
+
+            $img->url = $url;
+            $img->base_name = $url;
+            $img->save();
+
+        } else {
+
+            $image = new Image();
+            $image->user_id = $request['user_id'];
+            $image->url = $url;
+            $image->base_name = $url;
+            $image->save();
+        }
+
 
         return redirect()->route('admin.user',['id' => $request['user_id']]);
     }
