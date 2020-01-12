@@ -1,5 +1,9 @@
 @extends('layouts.admin')
 
+@section('title')
+    <title>{{ $title }}</title>
+@endsection
+
 @section('breadcrumbs')
     <section class="content-header">
         <div class="container-fluid">
@@ -7,7 +11,7 @@
                 <div class="col-sm-6">
                     <div class="row">
                         <div class="col-md-2">
-                            <h1>Users</h1>
+                            <h1>{{ $title }}</h1>
                         </div>
                         <div class="col-md-3">
                             <a href="{{ route('admin.user.create') }}" class="btn btn-block btn-outline-success">

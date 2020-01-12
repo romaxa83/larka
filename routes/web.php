@@ -53,6 +53,8 @@ Route::middleware('auth')->group(function () {
     Route::get('admin/chat-room/create',['uses' => 'Admin\Chat\ChatController@create', 'as' => 'admin.chat-room.create']);
     Route::post('admin/chat-room/create',['uses' => 'Admin\Chat\ChatController@store', 'as' => 'admin.chat-room.create']);
 
+    /* route for Jobs (testing) */
+    Route::get('admin/jobs',['uses' => 'Admin\JobsController@run', 'as' => 'admin.jobs.run']);
 
     Route::get('admin/books/category',['uses' => 'Admin\Books\CategoryController@index', 'as' => 'admin.books.category']);
     Route::get('admin/books/category/create',['uses' => 'Admin\Books\CategoryController@create', 'as' => 'admin.books.category.create']);

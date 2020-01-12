@@ -21,9 +21,13 @@ class HomeController extends Controller
 
     public function index()
     {
+        $title = 'Dashboard';
+
+        $horizonStatus = $this->dashboardService->checkHorizon();
+
 //        $node = $this->dashboardService->checkNodeSocketServer();
 
-        return view('admin.home');
+        return view('admin.home', compact('title', 'horizonStatus'));
     }
 
 

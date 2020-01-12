@@ -1,68 +1,71 @@
 @extends('layouts.admin')
 
-@section('content')
-    <section class="content">
+@section('title')
+    <title>{{ $title }}</title>
+@endsection
+
+@section('breadcrumbs')
+    <section class="content-header">
         <div class="container-fluid">
-            <form method="POST" action="{{ route('admin.user.create') }}">
-                @csrf
-                {{--@post--}}
-
-                <div class="card card-default">
-                    <div class="card-header">
-                        <h3 class="card-title">Form</h3>
-
-                        <div class="card-tools">
-                            <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i></button>
-                            <button type="button" class="btn btn-tool" data-card-widget="remove"><i class="fas fa-remove"></i></button>
-                        </div>
-                    </div>
-                    <!-- /.card-header -->
-                    <div class="card-body">
-                        <div class="row">
-                            <div class="col-md-6">
-                                <a href="{{route('admin.socket.check')}}">Check</a>
-                            </div>
-
-                            <div class="col-md-6">
-
-
-                            </div>
-                        </div>
-                    </div>
-                    <!-- /.card-body -->
-                    <div class="card-footer">
-                        <div class="form-group">
-                            <button type="submit" class="btn btn-primary">Save</button>
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <div class="row">
+                        <div class="col-md-2">
+                            <h1>{{ $title }}</h1>
                         </div>
                     </div>
                 </div>
-            </form>
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item active">{{ $title }}</li>
+                    </ol>
+                </div>
+            </div>
         </div>
     </section>
-    <script>
+@endsection
 
-        // const conn = new WebSocket('http://192.168.126.109:3000');
-        //
-        // conn.onopen = function(e) {
-        //     console.log(e);
-        // };
-        //
-        // conn.onmessage = function(e) {
-        //     console.log('Получены данные: ' + e.data);
-        //     };
-        //
-        // function send(){
-        //
-        //     let data = 'Данные для отправки: ' + Math.random();
-        //     conn.send(data);
-        //     console.log('Отправленно: ' + data);
-        //     }
+@section('content')
+    <section class="content">
+        <div class="container-fluid">
 
-        // var socket = io('http://192.168.126.109:3000');
-        // console.log('euu');
-        // socket.on('real-chart:App\\Events\\ChartRealTimeEvent', function(data){
-        //     console.log(data.result);
-        //     this.data = data.result;
-        // }.bind(this));
-    </script>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="card card-default">
+                        <div class="card-header">
+                            <h3 class="card-title">Jobs</h3>
+                            <div class="card-tools">
+                                <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i></button>
+                                <button type="button" class="btn btn-tool" data-card-widget="remove"><i class="fas fa-remove"></i></button>
+                            </div>
+                        </div>
+                        <!-- /.card-header -->
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <p>
+                                        Horizon -
+                                        @if($horizonStatus)
+                                            <span class="right badge badge-success">Run</span>
+                                        @else
+                                            <span class="right badge badge-danger">Sleep</span>
+                                        @endif
+                                    </p>
+                                    <p>Запустить задачи для теста</p>
+                                    <a href="{{route('admin.jobs.run')}}">Run</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+
+                </div>
+                <div class="col-md-4">
+
+                </div>
+            </div>
+
+        </div>
+    </section>
 @endsection

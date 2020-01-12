@@ -34,5 +34,14 @@ dd($response);
         return json_decode((string) $response->getBody(), true);
     }
 
+    public function checkHorizon()
+    {
+        if(shell_exec('cd ../ && php artisan horizon:status') == "Horizon is running.\n"){
+            return true;
+        }
+
+        return false;
+    }
+
 
 }

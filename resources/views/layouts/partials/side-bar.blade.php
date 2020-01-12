@@ -71,6 +71,13 @@
                         </li>
                     </ul>
                 </li>
+                <li class="nav-header">Services</li>
+                <li class="nav-item">
+                    <a href="{{ url('/horizon/dashboard') }}" target="_blank" class="nav-link" title="Сервис для просмотра очередей">
+                        <i class="nav-icon fas fa-sliders-h"></i>
+                        <p>Horizon</p>
+                    </a>
+                </li>
             </ul>
         </nav>
         <!-- /.sidebar-menu -->

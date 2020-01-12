@@ -40,16 +40,18 @@ class UserController extends Controller
 
     public function index()
     {
+        $title = 'Users';
         $users = $this->userRepository->getAll();
 
-        return view('admin.user.index', compact('users'));
+        return view('admin.user.index', compact('users', 'title'));
     }
 
     public function create()
     {
+        $title = 'Create user';
         $roles = $this->roleRepository->getRolesForSelect();
 
-        return view('admin.user.create', compact('roles'));
+        return view('admin.user.create', compact('roles', $title));
     }
 
     public function store(User\CreateRequest $request)
@@ -67,9 +69,10 @@ class UserController extends Controller
     public function edit($id)
     {
         $user = $this->userRepository->getUserById($id);
+        $title = "Edit user by {$user->name}";
         $roles = $this->roleRepository->getRolesForSelect();
 
-        return view('admin.user.edit', compact('user', 'roles'));
+        return view('admin.user.edit', compact('user', 'roles', 'title'));
     }
 
     public function update(User\UpdateRequest $request, $id)
@@ -87,8 +90,9 @@ class UserController extends Controller
     public function show($id)
     {
         $user = $this->userRepository->getUserById($id);
+        $title = "Show user by {$user->name}";
 
-        return view('admin.user.show', compact('user'));
+        return view('admin.user.show', compact('user', 'title'));
     }
 
     public function upload(UploadRequest $request)

@@ -1,12 +1,16 @@
 @extends('layouts.admin')
 
+@section('title')
+    <title>{{ $title }}</title>
+@endsection
+
 @section('breadcrumbs')
     <section class="content-header">
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
                     <div class="row">
-                        <h1>User Edit</h1>
+                        <h1>{{ $title }}</h1>
                     </div>
                 </div>
                 <div class="col-sm-6">

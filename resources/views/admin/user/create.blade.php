@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 
 @section('title')
-    <title>Create User</title>
+    <title>{{ $title }}</title>
 @endsection
 
 @section('breadcrumbs')
@@ -10,7 +10,7 @@
             <div class="row mb-2">
                 <div class="col-sm-6">
                     <div class="row">
-                        <h1>User Create</h1>
+                        <h1>{{ $title }}</h1>
                     </div>
                 </div>
                 <div class="col-sm-6">
