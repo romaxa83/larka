@@ -71,11 +71,64 @@
                         </li>
                     </ul>
                 </li>
+                <li class="nav-item has-treeview">
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon fas fa-book"></i>
+                        <p>
+                            Socket
+                            <i class="fas fa-angle-left right"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{{ route('admin.socket.workerman') }}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Workerman</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="pages/layout/boxed.html" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Boxed</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="pages/layout/fixed-sidebar.html" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Fixed Sidebar</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="pages/layout/fixed-topnav.html" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Fixed Navbar</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="pages/layout/fixed-footer.html" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Fixed Footer</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="pages/layout/collapsed-sidebar.html" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Collapsed Sidebar</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
                 <li class="nav-header">Services</li>
                 <li class="nav-item">
                     <a href="{{ url('/horizon/dashboard') }}" target="_blank" class="nav-link" title="Сервис для просмотра очередей">
                         <i class="nav-icon fas fa-sliders-h"></i>
                         <p>Horizon</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{ route('admin.dropbox') }}" class="nav-link" title="Связь с dropbox">
+                        <i class="nav-icon fab fa-dropbox"></i>
+                        <p>My Dropbox</p>
                     </a>
                 </li>
             </ul>

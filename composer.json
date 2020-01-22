@@ -17,6 +17,7 @@
         "guzzlehttp/guzzle": "^6.4",
         "intervention/image": "^2.5",
         "jeroennoten/laravel-adminlte": "^3.0",
+        "kunalvarma05/dropbox-php-sdk": "^0.2.1",
         "laracasts/flash": "^3.0",
         "laravel/framework": "^6.2",
         "laravel/horizon": "^3.4",

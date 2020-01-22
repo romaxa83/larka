@@ -53,6 +53,13 @@ Route::middleware('auth')->group(function () {
     Route::get('admin/chat-room/create',['uses' => 'Admin\Chat\ChatController@create', 'as' => 'admin.chat-room.create']);
     Route::post('admin/chat-room/create',['uses' => 'Admin\Chat\ChatController@store', 'as' => 'admin.chat-room.create']);
 
+    /* route for Socket */
+    Route::get('admin/socket/workerman',['uses' => 'Admin\Socket\WorkermanController@index', 'as' => 'admin.socket.workerman']);
+    Route::get('admin/socket/workerman/push',['uses' => 'Admin\Socket\WorkermanController@push', 'as' => 'admin.socket.workerman.push']);
+
+    /* route for Dropbox */
+    Route::get('admin/dropbox',['uses' => 'Admin\DropboxController@index', 'as' => 'admin.dropbox']);
+
     /* route for Jobs (testing) */
     Route::get('admin/jobs',['uses' => 'Admin\JobsController@run', 'as' => 'admin.jobs.run']);
 
