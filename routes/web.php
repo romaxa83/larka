@@ -45,8 +45,15 @@ Route::middleware('auth')->group(function () {
     Route::post('admin/user/create',['uses' => 'Admin\UserController@store', 'as' => 'admin.user.create']);
     Route::get('admin/user/edit/{id}',['uses' => 'Admin\UserController@edit', 'as' => 'admin.user.edit']);
     Route::post('admin/user/edit/{id}',['uses' => 'Admin\UserController@update', 'as' => 'admin.user.update']);
-    Route::get('admin/user/{id}',['uses' => 'Admin\UserController@show', 'as' => 'admin.user']);
+
     Route::post('admin/user/upload',['uses' => 'Admin\UserController@upload', 'as' => 'admin.user.upload']);
+
+    Route::get('admin/user/phone', ['uses' => 'Admin\PhoneController@form', 'as' => 'admin.user.phone']);
+    Route::post('admin/user/phone', 'Admin\PhoneController@request');
+    Route::post('admin/user/phone-verify', 'Admin\PhoneController@verify')
+        ->name('admin.user.phone.verify');
+
+    Route::get('admin/user/{id}',['uses' => 'Admin\UserController@show', 'as' => 'admin.user']);
 
     /* route for Chat */
     Route::get('admin/chat-rooms',['uses' => 'Admin\Chat\ChatController@index', 'as' => 'admin.chat-rooms']);

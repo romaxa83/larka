@@ -69,6 +69,14 @@
                                     @endif
                                 </div>
 
+                                <div class="form-group">
+                                    <label for="phone" class="col-form-label">Phone</label>
+                                    <input id="text" type="tel" name="phone" class="form-control{{ $errors->has('phone') ? ' is-invalid' : '' }}" required>
+                                    @if ($errors->has('phone'))
+                                        <span class="invalid-feedback"><strong>{{ $errors->first('phone') }}</strong></span>
+                                    @endif
+                                </div>
+
                             </div>
 
                             <div class="col-md-6">

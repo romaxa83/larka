@@ -2991,84 +2991,113 @@ chat_room_id</ColNames>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="633" parent="358" name="email_verified_at">
+    <column id="633" parent="358" name="phone">
       <Position>4</Position>
-      <DataType>timestamp|0</DataType>
+      <Comment>Телефон</Comment>
+      <DataType>varchar(255)|0</DataType>
       <DefaultExpression>&apos;NULL&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="634" parent="358" name="password">
+    <column id="634" parent="358" name="phone_verified">
       <Position>5</Position>
-      <DataType>varchar(255)|0</DataType>
-      <NotNull>1</NotNull>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="635" parent="358" name="status">
-      <Position>6</Position>
-      <DataType>tinyint(4)|0</DataType>
+      <Comment>Потвержден ли телефон</Comment>
+      <DataType>tinyint(1)|0</DataType>
       <NotNull>1</NotNull>
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="636" parent="358" name="remember_token">
-      <Position>7</Position>
-      <DataType>varchar(100)|0</DataType>
+    <column id="635" parent="358" name="phone_verify_token">
+      <Position>6</Position>
+      <Comment>Токен для потверждения</Comment>
+      <DataType>varchar(255)|0</DataType>
       <DefaultExpression>&apos;NULL&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="637" parent="358" name="created_at">
+    <column id="636" parent="358" name="phone_verify_token_expire">
+      <Position>7</Position>
+      <Comment>Время жизни токена</Comment>
+      <DataType>timestamp|0</DataType>
+      <DefaultExpression>&apos;NULL&apos;</DefaultExpression>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="637" parent="358" name="email_verified_at">
       <Position>8</Position>
       <DataType>timestamp|0</DataType>
       <DefaultExpression>&apos;NULL&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="638" parent="358" name="updated_at">
+    <column id="638" parent="358" name="password">
       <Position>9</Position>
+      <DataType>varchar(255)|0</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="639" parent="358" name="status">
+      <Position>10</Position>
+      <DataType>tinyint(4)|0</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>&apos;0&apos;</DefaultExpression>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="640" parent="358" name="remember_token">
+      <Position>11</Position>
+      <DataType>varchar(100)|0</DataType>
+      <DefaultExpression>&apos;NULL&apos;</DefaultExpression>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="641" parent="358" name="created_at">
+      <Position>12</Position>
       <DataType>timestamp|0</DataType>
       <DefaultExpression>&apos;NULL&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="639" parent="358" name="users_email_unique">
+    <column id="642" parent="358" name="updated_at">
+      <Position>13</Position>
+      <DataType>timestamp|0</DataType>
+      <DefaultExpression>&apos;NULL&apos;</DefaultExpression>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <index id="643" parent="358" name="users_email_unique">
       <ColNames>email</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="640" parent="358" name="PRIMARY">
+    <key id="644" parent="358" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <key id="641" parent="358" name="users_email_unique">
+    <key id="645" parent="358" name="users_email_unique">
       <ColNames>email</ColNames>
       <UnderlyingIndexName>users_email_unique</UnderlyingIndexName>
     </key>
-    <column id="642" parent="359" name="user_id">
+    <column id="646" parent="359" name="user_id">
       <Position>1</Position>
       <DataType>bigint(20) unsigned|0</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="643" parent="359" name="role_id">
+    <column id="647" parent="359" name="role_id">
       <Position>2</Position>
       <DataType>int(10) unsigned|0</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="644" parent="359" name="users_role_pivot_role_id_foreign">
+    <index id="648" parent="359" name="users_role_pivot_role_id_foreign">
       <ColNames>role_id</ColNames>
     </index>
-    <key id="645" parent="359" name="PRIMARY">
+    <key id="649" parent="359" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>user_id
 role_id</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="646" parent="359" name="users_role_pivot_user_id_foreign">
+    <foreign-key id="650" parent="359" name="users_role_pivot_user_id_foreign">
       <ColNames>user_id</ColNames>
       <RefSchemaName>larka</RefSchemaName>
       <RefTableName>users</RefTableName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <foreign-key id="647" parent="359" name="users_role_pivot_role_id_foreign">
+    <foreign-key id="651" parent="359" name="users_role_pivot_role_id_foreign">
       <ColNames>role_id</ColNames>
       <RefSchemaName>larka</RefSchemaName>
       <RefTableName>user_roles</RefTableName>

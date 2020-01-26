@@ -33,6 +33,43 @@
             <div class="row">
                 <div class="col-12">
                     <div class="card">
+                        <div class="card card-default">
+                            <div class="card-header">
+                                <h3 class="card-title">Profile</h3>
+
+                                <div class="card-tools">
+                                    <button type="button" class="btn btn-tool" data-card-widget="collapse"><i
+                                                class="fas fa-minus"></i></button>
+                                    <button type="button" class="btn btn-tool" data-card-widget="remove"><i
+                                                class="fas fa-remove"></i></button>
+                                </div>
+                            </div>
+                            <!-- /.card-header -->
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        @if($user->phone)
+                                            {{ $user->phone }}
+                                            @if(!$user->isPhoneVerified())
+                                                <i>(is not verified)</i><br/>
+                                                <form method="POST" action="{{ route('admin.user.phone') }}">
+                                                    @csrf
+                                                    <button type="submit" class="btn btn-sm btn-success">Verify</button>
+                                                </form>
+                                            @endif
+                                        @endif
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- /.card-body -->
+                        </div>
+                    </div>
+                    <!-- /.card -->
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
                         <form method="POST" action="{{ route('admin.user.upload') }}"  enctype="multipart/form-data">
                             @csrf
                             {{--@post--}}

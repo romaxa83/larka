@@ -20,6 +20,15 @@ $(document).ready(function() {
             })
         }
 
+        if($('div').is('.swalDefaultWarning')){
+            let text = $('.swalDefaultWarning').text();
+            Toast.fire({
+                type: 'error',
+                background: '#ff4646',
+                title: text
+            })
+        }
+
         $('.swalDefaultInfo').click(function() {
             Toast.fire({
                 type: 'info',

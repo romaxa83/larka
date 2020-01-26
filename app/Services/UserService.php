@@ -46,6 +46,7 @@ class UserService
         $user = new User();
         $user->name = $request['name'];
         $user->email = $request['email'];
+        $user->phone = $request['phone'];
         $user->status = User::STATUS_ACTIVE;
         $user->password = Hash::make($request['password']);
 
@@ -66,6 +67,11 @@ class UserService
 
         $user->name = $request['name'];
         $user->email = $request['email'];
+
+        if($request['phone'] != $user->phone){
+            $user->unverifyPhone();
+        }
+        $user->phone = $request['phone'];
 
         if($request['password'] != null){
             $user->password = Hash::make($request['password']);

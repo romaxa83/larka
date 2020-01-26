@@ -9,6 +9,7 @@ use App\Models\Image;
 use App\Repositories\RoleRepository;
 use App\Repositories\UserRepository;
 use App\Services\UserService;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
@@ -53,7 +54,7 @@ class UserController extends Controller
         $title = 'Create user';
         $roles = $this->roleRepository->getRolesForSelect();
 
-        return view('admin.user.create', compact('roles', $title));
+        return view('admin.user.create', compact('roles', 'title'));
     }
 
     public function store(User\CreateRequest $request)

@@ -59,6 +59,7 @@
                                         <th>ID</th>
                                         <th>Name</th>
                                         <th>Email</th>
+                                        <th>Phone</th>
                                         <th>Roles</th>
                                         <th>Created</th>
                                         <th>Action</th>
@@ -70,6 +71,7 @@
                                             <td>{{$user->id}}</td>
                                             <td>{{$user->name}}</td>
                                             <td>{{$user->email}}</td>
+                                            <td>{{$user->phone}}</td>
                                             <td>{{$user->getRolesString()}}</td>
                                             <td>{{$user->created_at}}</td>
                                             <td>
