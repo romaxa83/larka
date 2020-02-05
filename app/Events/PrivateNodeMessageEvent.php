@@ -13,11 +13,11 @@ use Illuminate\Queue\SerializesModels;
  * Событие отправляет пришедшие данные в redis-server,
  * которые затем будут отправлены по socket
  */
-class ChartRealTimeEvent implements ShouldBroadcast
+class PrivateNodeMessageEvent implements ShouldBroadcast
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
-    public $result;
+    public $message;
 
     /**
      * Create a new event instance.
@@ -26,7 +26,7 @@ class ChartRealTimeEvent implements ShouldBroadcast
      */
     public function __construct($data)
     {
-        $this->result = $data;
+        $this->message = $data;
     }
 
     /**
@@ -37,7 +37,6 @@ class ChartRealTimeEvent implements ShouldBroadcast
      */
     public function broadcastOn()
     {
-//        return new PrivateChannel('real-chart');
-        return ['real-chart'];
+        return $this->message['channels'];
     }
 }

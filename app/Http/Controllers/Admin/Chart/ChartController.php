@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Admin\Chart;
 
-use App\Events\ChartRealTimeEvent;
+use App\Events\PrivateNodeMessageEvent;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
@@ -27,7 +27,7 @@ class ChartController extends Controller
 //
 //            for($i = 0; $i < 10; $i++){
 //                sleep(1);
-//            event(new ChartRealTimeEvent($this->getData()));
+//            event(new PrivateNodeMessageEvent($this->getData()));
 //
 //            }
 //        }

@@ -12,7 +12,7 @@ let redis = new Redis({
 });
 //------------------------------------------------------------------
 // код для публичных сообщений
-//подписываемся на канал указаные в app/Events/ChartRealTimeEvent.php
+//подписываемся на канал указаные в app/Events/PrivateNodeMessageEvent.phpt.php
 // redis.subscribe('real-chart');
 // redis.on('message', function(channel, message){
 //     console.log('Message ' + message);
@@ -24,7 +24,7 @@ let redis = new Redis({
 //------------------------------------------------------------------
 // код для приватных сообщений
 // подписываемся на канал в событии app/Events/PrivateMessage.php
-redis.psubscribe('pr.message.*');
+redis.psubscribe('user.*');
 redis.on('pmessage', function(pattern, channel, message){
     console.log('Message ' + message);
     console.log('Channel ' + channel);

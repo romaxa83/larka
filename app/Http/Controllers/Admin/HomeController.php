@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Events\ChartRealTimeEvent;
+use App\Events\PrivateNodeMessageEvent;
 use App\Http\Controllers\Controller;
 use App\Services\DashboardService;
 use Illuminate\Support\Facades\Redis;
@@ -37,7 +37,7 @@ class HomeController extends Controller
         $redis->set('cubic', 'rubic');
 //        Redis::set('name', 'Taylor');
 
-        event(new ChartRealTimeEvent(['message' =>'test_socket']));
+        event(new PrivateNodeMessageEvent(['message' =>'test_socket']));
         return redirect()->route('admin.home');
     }
 }

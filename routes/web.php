@@ -60,12 +60,19 @@ Route::middleware('auth')->group(function () {
     Route::get('admin/chat-room/create',['uses' => 'Admin\Chat\ChatController@create', 'as' => 'admin.chat-room.create']);
     Route::post('admin/chat-room/create',['uses' => 'Admin\Chat\ChatController@store', 'as' => 'admin.chat-room.create']);
 
-    /* route for Socket */
+    /* route for Socket (Workerman)*/
     Route::get('admin/socket/workerman',['uses' => 'Admin\Socket\WorkermanController@index', 'as' => 'admin.socket.workerman']);
     Route::get('admin/socket/workerman/push',['uses' => 'Admin\Socket\WorkermanController@push', 'as' => 'admin.socket.workerman.push']);
 
+    /* route for Socket (Node + Redis)*/
+    Route::get('admin/socket/node-redis',['uses' => 'Admin\Socket\NodeRedisController@index', 'as' => 'admin.socket.node-redis']);
+    Route::post('admin/socket/node-redis/push',['uses' => 'Admin\Socket\NodeRedisController@push', 'as' => 'admin.socket.node-redis.push']);
+
     /* route for Dropbox */
     Route::get('admin/dropbox',['uses' => 'Admin\DropboxController@index', 'as' => 'admin.dropbox']);
+
+    /* route for Articles */
+    Route::get('admin/articles/demiart',['uses' => 'Admin\Blogs\ArticleController@demiart', 'as' => 'admin.articles.demiart']);
 
     /* route for Jobs (testing) */
     Route::get('admin/jobs',['uses' => 'Admin\JobsController@run', 'as' => 'admin.jobs.run']);
@@ -75,9 +82,6 @@ Route::middleware('auth')->group(function () {
     Route::post('admin/books/category/store',['uses' => 'Admin\Books\CategoryController@store', 'as' => 'admin.books.category.store']);
 
     Route::get('admin/socket-check',['uses' => 'Admin\HomeController@checkSocket', 'as' => 'admin.socket.check']);
-
-    Route::get('admin/socket',['uses' => 'Admin\Socket\SocketController@index', 'as' => 'admin.socket']);
-    Route::get('admin/socket-push',['uses' => 'Admin\Socket\SocketController@push', 'as' => 'admin.socket.push']);
 });
 
 

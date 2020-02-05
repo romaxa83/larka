@@ -73,6 +73,7 @@
 
 <script src="/vendor/sweetalert2/sweetalert2.min.js"></script>
 <script src="/vendor/toastr/toastr.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.dev.js"></script>
 <!-- MyScript -->
 <script src="/js/main.js"></script>
 

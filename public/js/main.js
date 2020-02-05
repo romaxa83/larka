@@ -1,6 +1,19 @@
 $(document).ready(function() {
     console.log('SELECT2');
     $('.select2 ').select2();
+
+    // подключение сокетов
+
+    let userId;
+    if(userId = document.getElementById('userId').innerHTML){
+        // let userId = document.getElementById('userId').innerHTML;
+        console.log(userId);
+        let socket = io('http://192.168.126.109:3000');
+        console.log('euu');
+        socket.on(`user.${userId}:App\\Events\\PrivateNodeMessageEvent`, function(data){
+            console.log(data);
+        });
+    }
 });
 
     $(function() {

@@ -2020,7 +2020,7 @@ __webpack_require__.r(__webpack_exports__);
   mounted: function mounted() {
     var socket = io('http://192.168.126.109:3000');
     console.log('euu');
-    socket.on('real-chart:App\\Events\\ChartRealTimeEvent', function (data) {
+    socket.on('real-chart:App\\Events\\PrivateNodeMessageEvent', function (data) {
       console.log(data.result);
       this.data = data.result;
     }.bind(this));

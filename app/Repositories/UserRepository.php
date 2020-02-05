@@ -29,34 +29,11 @@ class UserRepository
 
     public function getAll()
     {
-        return User::query()->with(['roles'])->get();
+        return User::query()->notAdmin()->with(['roles'])->get();
     }
-//
-//    public function getUsersForAdminPanel($limit = User::DEFAULT_LIMIT, $offset = User::DEFAULT_PAGE)
-//    {
-//        if($offset){
-//            $offset = $limit*$offset;
-//        }
-//
-//        return DB::table('users as u')
-//            ->join('user_profile as p', 'u.id', '=','p.user_id')
-//            ->select('u.*','p.*')
-//            ->where([
-//                ['u.email', '!=','NULL'],
-//                ['u.email', '!=',User::ADMIN_EMAIL]
-//            ])->limit($limit)->offset($offset)
-//            ->get();
-//    }
-//
-//    public function getUsersCountForAdminPanel()
-//    {
-//        return DB::table('users as u')
-//            ->join('user_profile as p', 'u.id', '=','p.user_id')
-//            ->select('u.*','p.*')
-//            ->where([
-//                ['u.email', '!=','NULL'],
-//                ['u.email', '!=',User::ADMIN_EMAIL]
-//            ])
-//            ->count();
-//    }
+
+    public function getUsersForSelect($id)
+    {
+        return User::query()->pluck('name', 'id')->except($id);
+    }
 }

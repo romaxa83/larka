@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Database\Query\Builder;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\ServiceProvider;
 
@@ -25,6 +26,10 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        Builder::macro('notAdmin', function(): Builder{
+            return $this->where('email', '!=', 'admin@admin.com');
+        });
+
 //        Blade::directive('roles_str', function($collectionRoles) {
 //            /** @var Collection $collectionRoles */
 ////            $roles = $collectionRoles->pluck('role');
