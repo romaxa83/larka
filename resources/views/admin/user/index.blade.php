@@ -17,6 +17,34 @@
                             <a href="{{ route('admin.user.create') }}" class="btn btn-block btn-outline-success">
                                 Create
                             </a>
+                            <a href="{{ route('admin.user.export') }}" class="btn btn-block btn-outline-success">
+                                Export
+                            </a>
+                            <a href="{{ route('admin.user.export-view') }}" class="btn btn-block btn-outline-success">
+                                ExportView
+                            </a>
+                        </div>
+                        <div class="col-md-3">
+                            <a href="{{ route('admin.user.export-format', 'Html') }}" class="btn btn-block btn-outline-success">
+                                Export Html
+                            </a>
+                            <a href="{{ route('admin.user.export-format', 'Dompdf') }}" class="btn btn-block btn-outline-success">
+                                Export PDF
+                            </a>
+                            <a href="{{ route('admin.user.export-format', 'Csv') }}" class="btn btn-block btn-outline-success">
+                                Export CSV
+                            </a>
+                        </div>
+                        <div class="col-md-3">
+                            <a href="{{ route('admin.user.export-store') }}" class="btn btn-block btn-outline-success">
+                                Export Store
+                            </a>
+                            <a href="{{ route('admin.user.export-heading') }}" class="btn btn-block btn-outline-success">
+                                Export Heading
+                            </a>
+                            <a href="{{ route('admin.user.export-mapping') }}" class="btn btn-block btn-outline-success">
+                                Export Mapping
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -35,6 +63,15 @@
 
     <section class="content">
         <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-4">
+                    <form action="{{ route('admin.user.import') }}" method="POST" enctype="multipart/form-data">
+                        @csrf
+                        <input type="file" name="import">
+                        <input type="submit" class="btn btn-block btn-outline-info" value="Import File">
+                    </form>
+                </div>
+            </div>
             <!-- /.row -->
             <div class="row">
                 <div class="col-12">
@@ -53,35 +90,7 @@
                         <!-- /.card-header -->
                         @if($users->isNotEmpty())
                             <div class="card-body table-responsive p-0" style="height: 300px;">
-                                <table class="table table-head-fixed">
-                                    <thead>
-                                    <tr>
-                                        <th>ID</th>
-                                        <th>Name</th>
-                                        <th>Email</th>
-                                        <th>Phone</th>
-                                        <th>Roles</th>
-                                        <th>Created</th>
-                                        <th>Action</th>
-                                    </tr>
-                                    </thead>
-                                    <tbody>
-                                    @foreach($users as $user)
-                                        <tr>
-                                            <td>{{$user->id}}</td>
-                                            <td>{{$user->name}}</td>
-                                            <td>{{$user->email}}</td>
-                                            <td>{{$user->phone}}</td>
-                                            <td>{{$user->getRolesString()}}</td>
-                                            <td>{{$user->created_at}}</td>
-                                            <td>
-                                                <a href="{{route('admin.user.edit',['id' => $user->id])}}"><i class="fas fa-user-edit"></i></a>
-                                                <a href="{{route('admin.user',['id' => $user->id])}}"><i class="far fa-eye"></i></a>
-                                            </td>
-                                        </tr>
-                                    @endforeach
-                                    </tbody>
-                                </table>
+                                @include('admin.user.user-table', $users)
                             </div>
                     @endif
                     <!-- /.card-body -->

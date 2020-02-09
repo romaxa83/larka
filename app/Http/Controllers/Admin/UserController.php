@@ -2,18 +2,22 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Exports\UserExport;
+use App\Exports\UserExportHeading;
+use App\Exports\UserExportMapping;
+use App\Exports\UserExportView;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\UploadRequest;
 use App\Http\Requests\User;
+use App\Import\UserImport;
 use App\Models\Image;
 use App\Repositories\RoleRepository;
 use App\Repositories\UserRepository;
 use App\Services\UserService;
-use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
+use Maatwebsite\Excel\Facades\Excel;
 
 class UserController extends Controller
 {
@@ -125,6 +129,67 @@ class UserController extends Controller
 
         return redirect()->route('admin.user',['id' => $request['user_id']]);
     }
+
+    //------------------------------------------
+    // Action for Export/Import
+    //-----------------------------------------
+
+    // экспорт данных из бд
+    public function export()
+    {
+        return Excel::download(new UserExport(), 'users.xlsx');
+    }
+
+    // экспорт таблицу из шаблона
+    public function exportView()
+    {
+        return Excel::download(new UserExportView(), 'users-view.xlsx');
+    }
+
+    // экспорт в локальное хранилище
+    public function exportStore()
+    {
+        Excel::store(new UserExport(), 'users-' . time() . '.xlsx');
+
+        return redirect()->route('admin.users')
+            ->with('success', 'User export to local store');
+    }
+
+    // экспорт в определеный формат (pdf, scv, html)
+    public function exportFormat($format)
+    {
+        $extension = strtolower($format);
+        if(in_array($format, ['Mpdf', 'Dompdf', 'Tcpdf'])) $extension = 'pdf';
+
+        return Excel::download(new UserExport(), 'users.' . $extension, $format);
+    }
+
+    // экспорт данных с заголовками
+    public function exportHeading()
+    {
+        return Excel::download(new UserExportHeading(), 'users.xlsx');
+    }
+
+    // экспорт данных с mapping
+    public function exportMapping()
+    {
+        return Excel::download(new UserExportMapping(), 'users.xlsx');
+    }
+
+    // импорт данных
+    public function import(Request $request)
+    {
+        Excel::import(new UserImport(), $request->file('import'), null, 'Xlsx');
+
+        // если нужно загрузить файл другог типа (csv, ...)
+        // указываем так
+//        Excel::import(new UserImport(), $request->file('import'), null, 'Csv');
+
+        return redirect()->route('admin.users')
+            ->with('success', 'Successfully imported.');
+    }
+
+
 
     // контроллер для получение авторизованого пользователя
     // для работы с приватными сообшениями через сокеты

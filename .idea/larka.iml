@@ -21,6 +21,7 @@
       <excludeFolder url="file://$MODULE_DIR$/vendor/doctrine/inflector" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/doctrine/instantiator" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/doctrine/lexer" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/dompdf/dompdf" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/dragonmantank/cron-expression" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/egulias/email-validator" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/elasticsearch/elasticsearch" />
@@ -56,6 +57,9 @@
       <excludeFolder url="file://$MODULE_DIR$/vendor/league/event" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/league/flysystem" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/league/oauth2-server" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/maatwebsite/excel" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/markbaker/complex" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/markbaker/matrix" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/maximebf/debugbar" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/mockery/mockery" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/monolog/monolog" />
@@ -68,9 +72,12 @@
       <excludeFolder url="file://$MODULE_DIR$/vendor/paragonie/random_compat" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/phar-io/manifest" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/phar-io/version" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/phenx/php-font-lib" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/phenx/php-svg-lib" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/phpdocumentor/reflection-common" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/phpdocumentor/reflection-docblock" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/phpdocumentor/type-resolver" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/phpoffice/phpspreadsheet" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/phpoption/phpoption" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/phpseclib/phpseclib" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/phpspec/prophecy" />
@@ -99,6 +106,7 @@
       <excludeFolder url="file://$MODULE_DIR$/vendor/react/stream" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/react/zmq" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/rebing/graphql-laravel" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/sabberworm/php-css-parser" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/scrivo/highlight.php" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/sebastian/code-unit-reverse-lookup" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/sebastian/comparator" />
@@ -177,6 +185,7 @@
           <root url="file://$MODULE_DIR$/vendor/doctrine/inflector" />
           <root url="file://$MODULE_DIR$/vendor/doctrine/instantiator" />
           <root url="file://$MODULE_DIR$/vendor/doctrine/lexer" />
+          <root url="file://$MODULE_DIR$/vendor/dompdf/dompdf" />
           <root url="file://$MODULE_DIR$/vendor/dragonmantank/cron-expression" />
           <root url="file://$MODULE_DIR$/vendor/egulias/email-validator" />
           <root url="file://$MODULE_DIR$/vendor/elasticsearch/elasticsearch" />
@@ -212,6 +221,9 @@
           <root url="file://$MODULE_DIR$/vendor/league/event" />
           <root url="file://$MODULE_DIR$/vendor/league/flysystem" />
           <root url="file://$MODULE_DIR$/vendor/league/oauth2-server" />
+          <root url="file://$MODULE_DIR$/vendor/maatwebsite/excel" />
+          <root url="file://$MODULE_DIR$/vendor/markbaker/complex" />
+          <root url="file://$MODULE_DIR$/vendor/markbaker/matrix" />
           <root url="file://$MODULE_DIR$/vendor/maximebf/debugbar" />
           <root url="file://$MODULE_DIR$/vendor/mockery/mockery" />
           <root url="file://$MODULE_DIR$/vendor/monolog/monolog" />
@@ -224,9 +236,12 @@
           <root url="file://$MODULE_DIR$/vendor/paragonie/random_compat" />
           <root url="file://$MODULE_DIR$/vendor/phar-io/manifest" />
           <root url="file://$MODULE_DIR$/vendor/phar-io/version" />
+          <root url="file://$MODULE_DIR$/vendor/phenx/php-font-lib" />
+          <root url="file://$MODULE_DIR$/vendor/phenx/php-svg-lib" />
           <root url="file://$MODULE_DIR$/vendor/phpdocumentor/reflection-common" />
           <root url="file://$MODULE_DIR$/vendor/phpdocumentor/reflection-docblock" />
           <root url="file://$MODULE_DIR$/vendor/phpdocumentor/type-resolver" />
+          <root url="file://$MODULE_DIR$/vendor/phpoffice/phpspreadsheet" />
           <root url="file://$MODULE_DIR$/vendor/phpoption/phpoption" />
           <root url="file://$MODULE_DIR$/vendor/phpseclib/phpseclib" />
           <root url="file://$MODULE_DIR$/vendor/phpspec/prophecy" />
@@ -255,6 +270,7 @@
           <root url="file://$MODULE_DIR$/vendor/react/stream" />
           <root url="file://$MODULE_DIR$/vendor/react/zmq" />
           <root url="file://$MODULE_DIR$/vendor/rebing/graphql-laravel" />
+          <root url="file://$MODULE_DIR$/vendor/sabberworm/php-css-parser" />
           <root url="file://$MODULE_DIR$/vendor/scrivo/highlight.php" />
           <root url="file://$MODULE_DIR$/vendor/sebastian/code-unit-reverse-lookup" />
           <root url="file://$MODULE_DIR$/vendor/sebastian/comparator" />
@@ -329,6 +345,7 @@
           <root url="file://$MODULE_DIR$/vendor/doctrine/inflector" />
           <root url="file://$MODULE_DIR$/vendor/doctrine/instantiator" />
           <root url="file://$MODULE_DIR$/vendor/doctrine/lexer" />
+          <root url="file://$MODULE_DIR$/vendor/dompdf/dompdf" />
           <root url="file://$MODULE_DIR$/vendor/dragonmantank/cron-expression" />
           <root url="file://$MODULE_DIR$/vendor/egulias/email-validator" />
           <root url="file://$MODULE_DIR$/vendor/elasticsearch/elasticsearch" />
@@ -364,6 +381,9 @@
           <root url="file://$MODULE_DIR$/vendor/league/event" />
           <root url="file://$MODULE_DIR$/vendor/league/flysystem" />
           <root url="file://$MODULE_DIR$/vendor/league/oauth2-server" />
+          <root url="file://$MODULE_DIR$/vendor/maatwebsite/excel" />
+          <root url="file://$MODULE_DIR$/vendor/markbaker/complex" />
+          <root url="file://$MODULE_DIR$/vendor/markbaker/matrix" />
           <root url="file://$MODULE_DIR$/vendor/maximebf/debugbar" />
           <root url="file://$MODULE_DIR$/vendor/mockery/mockery" />
           <root url="file://$MODULE_DIR$/vendor/monolog/monolog" />
@@ -376,9 +396,12 @@
           <root url="file://$MODULE_DIR$/vendor/paragonie/random_compat" />
           <root url="file://$MODULE_DIR$/vendor/phar-io/manifest" />
           <root url="file://$MODULE_DIR$/vendor/phar-io/version" />
+          <root url="file://$MODULE_DIR$/vendor/phenx/php-font-lib" />
+          <root url="file://$MODULE_DIR$/vendor/phenx/php-svg-lib" />
           <root url="file://$MODULE_DIR$/vendor/phpdocumentor/reflection-common" />
           <root url="file://$MODULE_DIR$/vendor/phpdocumentor/reflection-docblock" />
           <root url="file://$MODULE_DIR$/vendor/phpdocumentor/type-resolver" />
+          <root url="file://$MODULE_DIR$/vendor/phpoffice/phpspreadsheet" />
           <root url="file://$MODULE_DIR$/vendor/phpoption/phpoption" />
           <root url="file://$MODULE_DIR$/vendor/phpseclib/phpseclib" />
           <root url="file://$MODULE_DIR$/vendor/phpspec/prophecy" />
@@ -407,6 +430,7 @@
           <root url="file://$MODULE_DIR$/vendor/react/stream" />
           <root url="file://$MODULE_DIR$/vendor/react/zmq" />
           <root url="file://$MODULE_DIR$/vendor/rebing/graphql-laravel" />
+          <root url="file://$MODULE_DIR$/vendor/sabberworm/php-css-parser" />
           <root url="file://$MODULE_DIR$/vendor/scrivo/highlight.php" />
           <root url="file://$MODULE_DIR$/vendor/sebastian/code-unit-reverse-lookup" />
           <root url="file://$MODULE_DIR$/vendor/sebastian/comparator" />

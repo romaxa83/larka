@@ -42,6 +42,16 @@ Route::middleware('auth')->group(function () {
     /* route for User */
     Route::get('admin/users',['uses' => 'Admin\UserController@index', 'as' => 'admin.users']);
     Route::get('admin/user/create',['uses' => 'Admin\UserController@create', 'as' => 'admin.user.create']);
+    /* route for User (export)*/
+    Route::get('admin/user/export',['uses' => 'Admin\UserController@export', 'as' => 'admin.user.export']);
+    Route::get('admin/user/export-view',['uses' => 'Admin\UserController@exportView', 'as' => 'admin.user.export-view']);
+    Route::get('admin/user/export-store',['uses' => 'Admin\UserController@exportStore', 'as' => 'admin.user.export-store']);
+    Route::get('admin/user/export-format/{format}',['uses' => 'Admin\UserController@exportFormat', 'as' => 'admin.user.export-format']);
+    Route::get('admin/user/export-heading',['uses' => 'Admin\UserController@exportHeading', 'as' => 'admin.user.export-heading']);
+    Route::get('admin/user/export-mapping',['uses' => 'Admin\UserController@exportMapping', 'as' => 'admin.user.export-mapping']);
+    /* route for User (import)*/
+    Route::post('admin/user/import',['uses' => 'Admin\UserController@import', 'as' => 'admin.user.import']);
+
     Route::post('admin/user/create',['uses' => 'Admin\UserController@store', 'as' => 'admin.user.create']);
     Route::get('admin/user/edit/{id}',['uses' => 'Admin\UserController@edit', 'as' => 'admin.user.edit']);
     Route::post('admin/user/edit/{id}',['uses' => 'Admin\UserController@update', 'as' => 'admin.user.update']);
