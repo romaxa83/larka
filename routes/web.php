@@ -51,6 +51,7 @@ Route::middleware('auth')->group(function () {
     Route::get('admin/user/export-mapping',['uses' => 'Admin\UserController@exportMapping', 'as' => 'admin.user.export-mapping']);
     /* route for User (import)*/
     Route::post('admin/user/import',['uses' => 'Admin\UserController@import', 'as' => 'admin.user.import']);
+    Route::post('admin/user/import-csv',['uses' => 'Admin\UserController@importCsv', 'as' => 'admin.user.import.csv']);
 
     Route::post('admin/user/create',['uses' => 'Admin\UserController@store', 'as' => 'admin.user.create']);
     Route::get('admin/user/edit/{id}',['uses' => 'Admin\UserController@edit', 'as' => 'admin.user.edit']);

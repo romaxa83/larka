@@ -71,6 +71,13 @@
                         <input type="submit" class="btn btn-block btn-outline-info" value="Import File">
                     </form>
                 </div>
+                <div class="col-md-4">
+                    <form action="{{ route('admin.user.import.csv') }}" method="POST" enctype="multipart/form-data">
+                        @csrf
+                        <input type="file" name="import">
+                        <input type="submit" class="btn btn-block btn-outline-info" value="Import Csv File">
+                    </form>
+                </div>
             </div>
             <!-- /.row -->
             <div class="row">

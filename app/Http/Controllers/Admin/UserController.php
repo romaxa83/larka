@@ -10,6 +10,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\UploadRequest;
 use App\Http\Requests\User;
 use App\Import\UserImport;
+use App\Import\UserImportCsv;
 use App\Models\Image;
 use App\Repositories\RoleRepository;
 use App\Repositories\UserRepository;
@@ -181,9 +182,13 @@ class UserController extends Controller
     {
         Excel::import(new UserImport(), $request->file('import'), null, 'Xlsx');
 
-        // если нужно загрузить файл другог типа (csv, ...)
-        // указываем так
-//        Excel::import(new UserImport(), $request->file('import'), null, 'Csv');
+        return redirect()->route('admin.users')
+            ->with('success', 'Successfully imported.');
+    }
+
+    public function importCsv(Request $request)
+    {
+        Excel::import(new UserImportCsv(), $request->file('import'), null, 'Csv');
 
         return redirect()->route('admin.users')
             ->with('success', 'Successfully imported.');
